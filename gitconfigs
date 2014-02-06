@@ -1,0 +1,3 @@
+git config --global user.name "Ted Timmons"
+git config --global user.email "ted@perljam.net"
+git config --global push.default tracking
