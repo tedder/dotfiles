@@ -1,0 +1,65 @@
+Compression yes
+ServerAliveInterval 9
+HashKnownHosts no
+ForwardAgent yes
+
+#ControlMaster auto
+#ControlPath ~/.ssh/sockets/%r@%h-%p
+#ControlPersist 600
+
+#Host github.com
+	#LogLevel DEBUG
+Host officepi 10.0.1.43
+	HostName 10.0.1.43
+	User pi
+	TCPKeepAlive no
+Host static
+	HostName 209.61.142.60
+	User ted
+	Port 55665
+Host *.a.burnerapp.com
+  Port 22
+  User ubuntu
+	ControlMaster no
+Host experimental.burnerapp.com
+  Port 55665
+Host *.burnerapp.com
+  Port 410
+  User ted
+Host burner0*.burnerapp.com
+	ControlMaster no
+Host myth
+	User tedder
+	Port 2222
+	HostName tedder.homeip.net
+Host orangie
+	User tedder
+	Port 2223
+	HostName tedder.homeip.net
+Host orangie-home orangie-local
+	User tedder
+	Port 22
+	HostName 192.168.1.80
+Host myth-home myth-local
+	User tedder
+	Port 22
+	HostName 192.168.1.82
+Host picam
+	User pi
+	Port 2225
+	HostName tedder.homeip.net
+# web on 4900
+Host picam-local
+	User pi
+	Port 22
+	HostName 192.168.1.49
+Host geekisp
+	HostName login.geekisp.com
+	User tedt
+Host *.amazonaws.com
+	User ubuntu
+Host pi pi.perljam.net
+	HostName pi.perljam.net
+	#HostName 92.63.174.28
+	User pi
+

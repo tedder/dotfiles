@@ -1,0 +1,9 @@
+[user]
+	name = tedder
+	email = ted@adhoclabs.co
+[push]
+	default = simple
+
+[alias]
+	pull = --rebase
+	ci = commit

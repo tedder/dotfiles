@@ -1,0 +1,9 @@
+
+export CLICOLOR=1
+export HOMEBREW_GITHUB_API_TOKEN="e3724e4745059f7fdbca9205ee007122513c8fd1"
+export PATH=$PATH:/Users/ted/git/dotfiles/bin/
+
+alias tower="ssh -N -i ~/.ssh/stanson-aws.pem -L 1612:localhost:443 ubuntu@ec2-54-236-110-105.compute-1.amazonaws.com"
+alias vash="mosh --ssh='ssh -o IdentityFile=/Users/ted/.vagrant.d/insecure_private_key -o StrictHostKeyChecking=no -p 2222' vagrant@127.0.0.1"
+
+
