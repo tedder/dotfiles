@@ -9,10 +9,6 @@ ForwardAgent yes
 
 #Host github.com
 	#LogLevel DEBUG
-Host officepi 10.0.1.43
-	HostName 10.0.1.43
-	User pi
-	TCPKeepAlive no
 Host static
 	HostName 209.61.142.60
 	User ted
@@ -31,15 +27,7 @@ Host burner0*.burnerapp.com
 Host myth
 	User tedder
 	Port 2222
-	HostName tedder.homeip.net
-Host orangie
-	User tedder
-	Port 2223
-	HostName tedder.homeip.net
-Host orangie-home orangie-local
-	User tedder
-	Port 22
-	HostName 192.168.1.80
+	HostName tedder42.noip.me
 Host myth-home myth-local
 	User tedder
 	Port 22
@@ -47,12 +35,16 @@ Host myth-home myth-local
 Host picam
 	User pi
 	Port 2225
-	HostName tedder.homeip.net
+	HostName home.perljam.net
+Host piwall wallpi
+  User pi
+  HostName 192.168.1.95
 # web on 4900
 Host picam-local
 	User pi
 	Port 22
 	HostName 192.168.1.49
+  #x11vnc -passwd fart -display :0 -no6 -reopen -shared -noipv6 -forever -ncache 10
 Host geekisp
 	HostName login.geekisp.com
 	User tedt
@@ -62,4 +54,18 @@ Host pi pi.perljam.net
 	HostName pi.perljam.net
 	#HostName 92.63.174.28
 	User pi
+Host seedbox1
+  HostName seedbox1.tedder.me
+  User root
+  Port 666
+Host seedbox2 seedbox
+  HostName seedbox2.tedder.me
+  User root
+  Port 22
 
+
+Host *.ssh.stansonhealth.com
+  User ubuntu
+  IdentityFile ~/.ssh/stanson-aws.pem
+Host bitbucket.org
+  IdentityFile ~/.ssh/ted_stanson_id_rsa

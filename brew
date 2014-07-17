@@ -22,7 +22,7 @@ brew install bash
 brew install ansible
 
 # standard toolchain
-brew install git python mosh wget
+brew install git python mosh wget watch
 
 # Remove outdated versions from the cellar
 brew cleanup

@@ -5,7 +5,7 @@ set t_Co=256              " enable 256-color mode.
 " solarized: http://www.mrxuri.com/2013/11/09/use-solarized-color-scheme-in-mac-os-x-terminal.html
 syntax enable
 set background=light
-colorscheme solarized
+"colorscheme solarized
 
 set ts=2  " 2-char tab stop
 set ruler
@@ -42,3 +42,11 @@ autocmd BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn
       \   setf markdown |
       \ endif
 
+" Show trailing whitespace: http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+" doesn't work :%s/\s\+$
+
+" show tabs http://vim.wikia.com/wiki/See_the_tabs_in_your_file
+" alt: http://askubuntu.com/a/74503/69983
+" alt: http://vimcasts.org/episodes/show-invisibles/
+":set list
+":set listchars=tab:\|\<Space>
