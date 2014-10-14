@@ -104,15 +104,19 @@ defaults write com.apple.dock orientation -string left
 defaults write com.apple.dock autohide -boolean True
 
 
+# go away, facetime.
+rm /Users/ted/Library/Preferences/com.apple.facetime.bag.plist /Users/ted/Library/Preferences/com.apple.imservice.ids.FaceTime.plist
+
 
 
 ###############################################################################
 # Kill affected applications                                                  #
+# not killing terminal because we're using it.                                #
 ###############################################################################
 
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
 	"Dock" "Finder" "Mail" "Messages" "Safari" "SizeUp" "SystemUIServer" \
-	"Terminal" "Transmission" "Twitter" "iCal"; do
+	"Transmission" "Twitter" "iCal"; do
 	killall "${app}" > /dev/null 2>&1
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."

@@ -13,17 +13,6 @@ Host static
 	HostName 209.61.142.60
 	User ted
 	Port 55665
-Host *.a.burnerapp.com
-  Port 22
-  User ubuntu
-	ControlMaster no
-Host experimental.burnerapp.com
-  Port 55665
-Host *.burnerapp.com
-  Port 410
-  User ted
-Host burner0*.burnerapp.com
-	ControlMaster no
 Host myth
 	User tedder
 	Port 2222
@@ -54,6 +43,7 @@ Host pi pi.perljam.net
 	HostName pi.perljam.net
 	#HostName 92.63.174.28
 	User pi
+  ForwardAgent yes
 Host seedbox1
   HostName seedbox1.tedder.me
   User root
