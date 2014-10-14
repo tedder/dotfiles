@@ -1,7 +1,7 @@
 
 export CLICOLOR=1
-export HOMEBREW_GITHUB_API_TOKEN="e3724e4745059f7fdbca9205ee007122513c8fd1"
-export PATH=$PATH:/Users/ted/git/dotfiles/bin/
+export HOMEBREW_GITHUB_API_TOKEN="`${HOME}/Dropbox/ted-geek/brew-github-key.txt`"
+export PATH=$PATH:$HOME/git/dotfiles/bin/
 export GOPATH=$HOME/git/go
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 export DOCKER_HOST=tcp://localhost:4243
