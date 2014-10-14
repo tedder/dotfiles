@@ -2,7 +2,7 @@
 	name = tedder
 	email = ted@perljam.net
 [push]
-	default = simple
+	default = tracking
 
 [alias]
 	pull = --rebase

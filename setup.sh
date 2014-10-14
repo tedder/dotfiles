@@ -4,6 +4,7 @@ mkdir ~/.ssh/
 mkdir ~/.aws/
 ln -s ~/git/dotfiles/bashprofile ~/.profile
 ln -s ~/git/dotfiles/sshconfig ~/.ssh/config
+ln -s ~/git/dotfiles/gitconfig ~/.gitconfig
 
 mkdir -p ~/.vim/colors/
 ln -s ~/git/dotfiles/vimrc ~/.vimrc
