@@ -88,6 +88,15 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 defaults write com.google.Chrome ExtensionInstallSources -array "https://*.github.com/*" "http://userscripts.org/*"
 defaults write com.google.Chrome.canary ExtensionInstallSources -array "https://*.github.com/*" "http://userscripts.org/*"
 
+## from: https://github.com/mathiasbynens/dotfiles/blob/master/.osx
+# Avoid creating .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Show the ~/Library folder
+chflags nohidden ~/Library
+
+
+
 ## dock settings from:
 ## http://secrets.blacktree.com/?showapp=com.apple.dock
 

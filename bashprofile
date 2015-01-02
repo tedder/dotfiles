@@ -12,11 +12,16 @@ alias vash="mosh --ssh='ssh -o IdentityFile=/Users/ted/.vagrant.d/insecure_priva
 alias gocd="ssh -i ~/.ssh/stanson-aws.pem -N -L 8153:localhost:8153 ubuntu@gocd.ssh.stansonhealth.com"
 
 # via: http://unix.stackexchange.com/a/1292/42232
+# http://askubuntu.com/a/566536/69983
 # avoid duplicates..
-export HISTCONTROL=ignoredups:erasedups  
+export HISTCONTROL=ignoredups:erasedups:erasedups
 # append history entries..
 shopt -s histappend
 
 # cargoculting on this term
 export HISTFILESIZE=100000
 export HISTSIZE=100000
+
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/ted/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1

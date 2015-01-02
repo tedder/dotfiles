@@ -22,3 +22,7 @@ ln -s ~/git/dotfiles/vim/colors/solarized.vim ~/.vim/colors/
 sh brew
 sh osx
 
+
+## requires xcode / command line tools
+#sudo pip install pyobjc
+#python fix-macosx.py
