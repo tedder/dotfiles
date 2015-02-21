@@ -51,7 +51,8 @@ Host seedbox1
 Host seedbox2 seedbox
   HostName seedbox2.tedder.me
   User root
-  Port 22
+  Port 666
+  #Port 22
 
 
 Host *.ssh.stansonhealth.com
@@ -59,3 +60,6 @@ Host *.ssh.stansonhealth.com
   IdentityFile ~/.ssh/stanson-aws.pem
 Host bitbucket.org
   IdentityFile ~/.ssh/ted_stanson_id_rsa
+Host *.us-west-2.compute.amazonaws.com
+  User ubuntu
+  IdentityFile ~/.ssh/stanson-oregon-aws.pem

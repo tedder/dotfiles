@@ -22,6 +22,8 @@ ln -s ~/git/dotfiles/vim/colors/solarized.vim ~/.vim/colors/
 sh brew
 sh osx
 
+sudo gem install jekyll s3_website compass bootstrap-sass
+
 
 ## requires xcode / command line tools
 #sudo pip install pyobjc

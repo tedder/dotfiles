@@ -7,3 +7,5 @@
 [alias]
 	pull = --rebase
 	ci = commit
+[color]
+	ui = true
