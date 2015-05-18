@@ -22,7 +22,13 @@ brew install bash
 brew install ansible
 
 # standard toolchain
-brew install git python mosh wget watch nmap
+brew install git python mosh wget watch nmap bash-completion
+
+# ruby
+brew install chruby ruby-install
+
+# ruby versions
+ruby-install ruby 2.1.3
 
 # Remove outdated versions from the cellar
 brew cleanup

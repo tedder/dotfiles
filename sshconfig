@@ -28,6 +28,10 @@ Host picam
 Host piwall wallpi
   User pi
   HostName 192.168.1.95
+Host external-piwall
+  User pi
+	HostName home.perljam.net
+  Port 9522
 # web on 4900
 Host picam-local
 	User pi

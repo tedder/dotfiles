@@ -5,11 +5,18 @@ export PATH=$PATH:$HOME/git/dotfiles/bin/
 export GOPATH=$HOME/git/go
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 export DOCKER_HOST=tcp://localhost:4243
-
+export AWS_DATA_PATH="/usr/local/lib/python2.7/site-packages/botocore/data/"
+export BOTO_CONFIG="~/.aws/config"
 
 alias tower="ssh -i ~/.ssh/stanson-aws.pem -N -L 1613:localhost:443 ubuntu@tower.ssh.stansonhealth.com"
 alias vash="mosh --ssh='ssh -o IdentityFile=/Users/ted/.vagrant.d/insecure_private_key -o StrictHostKeyChecking=no -p 2222' vagrant@127.0.0.1"
 alias gocd="ssh -i ~/.ssh/stanson-aws.pem -N -L 8153:localhost:8153 ubuntu@gocd.ssh.stansonhealth.com"
+
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+
+source /usr/local/share/chruby/chruby.sh
 
 # via: http://unix.stackexchange.com/a/1292/42232
 # http://askubuntu.com/a/566536/69983
