@@ -12,11 +12,8 @@ brew upgrade
 
 # Install GNU core utilities (those that come with OS X are outdated)
 brew install coreutils
-echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
-# Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
-brew install findutils
-# Install Bash 4
-brew install bash
+#? echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
+brew install coreutils findutils unrar bash
 
 # stanson toolchain
 brew install ansible
@@ -30,5 +27,13 @@ brew install chruby ruby-install
 # ruby versions
 ruby-install ruby 2.1.3
 
+# beardedspice (audio controller that can pause apps from keyboard)
+brew install Caskroom/cask/beardedspice
+
+# microsoft fonts (so spreadsheets/text editor quit complaining about Calibri)
+brew tap colindean/fonts-nonfree && brew cask install font-microsoft-office
+
+
 # Remove outdated versions from the cellar
 brew cleanup
+

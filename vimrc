@@ -3,13 +3,16 @@ set nocompatible          " get rid of Vi compatibility mode. SET FIRST!
 set t_Co=256              " enable 256-color mode.
 
 " solarized: http://www.mrxuri.com/2013/11/09/use-solarized-color-scheme-in-mac-os-x-terminal.html
-syntax enable
+"syntax enable
+syntax on
 set background=light
 "colorscheme solarized
 
+set synmaxcol=900 " stop syntax highlighting on super-long lines
+
 set ts=2  " 2-char tab stop
 set ruler
-syntax on
+"syntax on
 set hlsearch
 
 " Tell vim to remember certain things when we exit
@@ -50,3 +53,25 @@ autocmd BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn
 " alt: http://vimcasts.org/episodes/show-invisibles/
 ":set list
 ":set listchars=tab:\|\<Space>
+
+execute pathogen#infect()
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_id_checkers = 1
+
+" let g:syntastic_quiet_messages = { 'regex': 'bad-continuation\|bad-indentation\|missing-docstring\|no-self-use' }
+let g:syntastic_python_checkers = ["pyflakes", "python"]
+"Available checkers: pyflakes pylint python
+let g:syntastic_html_tidy_ignore_errors = [ '<script> proprietary attribute "integrity"', '<script> proprietary attribute "crossorigin"', "'<' + '/' + letter not allowed here" ]
+" ]
+let g:syntastic_html_tidy_exec = 'tidy'
+
+
+

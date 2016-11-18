@@ -9,6 +9,14 @@ ForwardAgent yes
 
 #Host github.com
 	#LogLevel DEBUG
+Host garagepi pigarage
+  HostName 10.250.250.42
+  ConnectTimeout 20
+  User pi
+Host pidoor
+  HostName 10.250.250.43
+  ConnectTimeout 20
+  User pi
 Host static
 	HostName 209.61.142.60
 	User ted
@@ -26,6 +34,9 @@ Host picam
 	Port 2225
 	HostName home.perljam.net
 Host piwall wallpi
+  User pi
+  HostName 10.250.250.41
+Host piwall2
   User pi
   HostName 192.168.1.95
 Host external-piwall
@@ -59,11 +70,22 @@ Host seedbox2 seedbox
   #Port 22
 
 
+Host *.stansonhealth.com
+  User ubuntu
 Host *.ssh.stansonhealth.com
   User ubuntu
   IdentityFile ~/.ssh/stanson-aws.pem
+  ForwardAgent yes
+Host *.internal.stansonhealth.com
+  User ubuntu
+  IdentityFile ~/.ssh/stanson-aws.pem
+  ForwardAgent yes
 Host bitbucket.org
   IdentityFile ~/.ssh/ted_stanson_id_rsa
-Host *.us-west-2.compute.amazonaws.com
+Host *.us-west-2.compute.amazonaws.com 10.192.* *.uswest2.stansonhealth.com
   User ubuntu
   IdentityFile ~/.ssh/stanson-oregon-aws.pem
+Host 172.31.*
+  User ubuntu
+  IdentityFile ~/.ssh/stanson-aws.pem
+  ForwardAgent yes

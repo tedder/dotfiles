@@ -29,6 +29,11 @@ sudo pmset -a sms 0
 # Disable “natural” (Lion-style) scrolling
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 
+# kill inertia scrolling on the mouse scroll wheel
+# https://apple.stackexchange.com/questions/159180/yosemite-disabling-inertia-scrolling-using-scroll-wheel-for-the-mouse
+defaults write .GlobalPreferences com.apple.scrollwheel.scaling -1
+
+
 # Disable press-and-hold for keys in favor of key repeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
@@ -118,6 +123,10 @@ rm /Users/ted/Library/Preferences/com.apple.facetime.bag.plist /Users/ted/Librar
 
 # set date/time/clock to show date and day and 24hr
 defaults write com.apple.menuextra.clock 'DateFormat' -string 'EEE MMM d   H:mm'
+
+# stfu Apple Photos autolaunch
+# http://petapixel.com/2015/12/21/stop-apple-photos-from-auto-launching-in-os-x-with-one-command/
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
 
 
 ###############################################################################

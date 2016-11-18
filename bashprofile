@@ -1,16 +1,47 @@
+if [[ ! `pgrep gpg-agent` ]] || [[ ! -f "${HOME}/.gpg-agent-info" ]]; then
+  echo "starting gpg"
+  gpg-agent --daemon --enable-ssh-support --write-env-file "${HOME}/.gpg-agent-info" --quiet
+  echo "done."
+fi
+
+echo "sourcing gpg"
+#. "${HOME}/.gpg-agent-info"
+. ~/.gpg-agent-info && export GPG_AGENT_INFO && export SSH_AUTH_SOCK && export SSH_AGENT_PID
+echo "done"
+#export GPG_AGENT_INFO
+#export SSH_AUTH_SOCK
 
 export CLICOLOR=1
 export HOMEBREW_GITHUB_API_TOKEN="`cat ${HOME}/Dropbox/ted-geek/brew-github-key.txt`"
-export PATH=$PATH:$HOME/git/dotfiles/bin/
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH:$HOME/git/dotfiles/bin/:/usr/local/Cellar/python3/3.4.3/Frameworks/Python.framework/Versions/3.4/bin/:~/git/stansonhealth/provisioning/files/helpers/
+
 export GOPATH=$HOME/git/go
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages
-export DOCKER_HOST=tcp://localhost:4243
-export AWS_DATA_PATH="/usr/local/lib/python2.7/site-packages/botocore/data/"
+#export PYTHONPATH=/usr/local/lib/python2.7/site-packages
+#export DOCKER_HOST=tcp://localhost:4243
+#export AWS_DATA_PATH="/usr/local/lib/python2.7/site-packages/botocore/data/"
 export BOTO_CONFIG="~/.aws/config"
 
-alias tower="ssh -i ~/.ssh/stanson-aws.pem -N -L 1613:localhost:443 ubuntu@tower.ssh.stansonhealth.com"
-alias vash="mosh --ssh='ssh -o IdentityFile=/Users/ted/.vagrant.d/insecure_private_key -o StrictHostKeyChecking=no -p 2222' vagrant@127.0.0.1"
-alias gocd="ssh -i ~/.ssh/stanson-aws.pem -N -L 8153:localhost:8153 ubuntu@gocd.ssh.stansonhealth.com"
+# needed for grails, otherwise it goes to java6 that doesn't have nio.filewhatever, so asset-pipeline fails
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home
+export GRAILS_OPTS="-XX:PermSize=128m -XX:MaxPermSize=1g"
+
+# node, nvm, npm
+export NVM_DIR=~/.nvm
+. $(brew --prefix nvm)/nvm.sh
+
+# init docker
+#echo "docker"
+#eval $(docker-machine env)
+#echo "done-"
+
+#alias tower="ssh -i ~/.ssh/stanson-aws.pem -N -L 1613:localhost:443 ubuntu@tower.ssh.stansonhealth.com"
+#alias vash="mosh --ssh='ssh -o IdentityFile=/Users/ted/.vagrant.d/insecure_private_key -o StrictHostKeyChecking=no -p 2222' vagrant@127.0.0.1"
+#alias gocd="ssh -i ~/.ssh/stanson-aws.pem -N -L 8153:localhost:8153 ubuntu@gocd.ssh.stansonhealth.com"
+alias twtxt="python3 ~/git/twtxt/twtxt/cli.py"
+alias aprs='python -c "import sys,aprslib,json;a=aprslib.parse(sys.argv[1]);print(json.dumps(a,indent=2));print(\"http://www.openstreetmap.org/index.html?lat={0}&lon={1}&mlat={0}&mlon={1}&zoom=16\".format(a[\"latitude\"],a[\"longitude\"]))"'
+alias lsusb='system_profiler SPUSBDataType'
+alias docker2='dlite'
+alias fix_sd_card_permissions='chflags nouchg '
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
@@ -29,6 +60,19 @@ shopt -s histappend
 export HISTFILESIZE=100000
 export HISTSIZE=100000
 
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/ted/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
+#export DOCKER_HOST=tcp://192.168.59.103:2376
+##export DOCKER_CERT_PATH=/Users/ted/.boot2docker/certs/boot2docker-vm
+#export DOCKER_TLS_VERIFY=1
+
+export PS1="\h:\W \u\$ "
+
+# pip bash completion start
+_pip_completion()
+{
+    COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
+                   COMP_CWORD=$COMP_CWORD \
+                   PIP_AUTO_COMPLETE=1 $1 ) )
+}
+complete -o default -F _pip_completion pip
+# pip bash completion end
+

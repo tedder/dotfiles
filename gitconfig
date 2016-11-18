@@ -1,6 +1,7 @@
 [user]
 	name = tedder
-	email = ted.timmons@stansonhealth.com
+	email = ted@timmons.me
+	signingkey = 445213BF
 [push]
 	default = tracking
 
@@ -9,3 +10,5 @@
 	ci = commit
 [color]
 	ui = true
+[commit]
+	gpgsign = true
