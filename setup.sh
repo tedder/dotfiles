@@ -19,6 +19,12 @@ ln -s ~/git/dotfiles/vimrc ~/.vimrc
 ln -s ~/git/dotfiles/wgetrc ~/.wgetrc
 ln -s ~/git/dotfiles/vim/colors/solarized.vim ~/.vim/colors/
 
+mkdir -p ~/.vim/autoload/ ~/.vim/bundle/
+if [ ! -e ~/.vim/autoload/pathogen.vim ]
+  then curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+fi
+
+
 sh brew
 sh osx
 

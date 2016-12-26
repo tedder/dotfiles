@@ -38,7 +38,7 @@ defaults write .GlobalPreferences com.apple.scrollwheel.scaling -1
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write NSGlobalDomain KeyRepeat -int 2
 
 # Set the timezone; see `systemsetup -listtimezones` for other values
 systemsetup -settimezone "America/Los_Angeles" > /dev/null
@@ -127,6 +127,14 @@ defaults write com.apple.menuextra.clock 'DateFormat' -string 'EEE MMM d   H:mm'
 # stfu Apple Photos autolaunch
 # http://petapixel.com/2015/12/21/stop-apple-photos-from-auto-launching-in-os-x-with-one-command/
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
+
+
+dockutil --list | grep persistent-apps | cut -f 1 | egrep -v "Siri" | xargs -L 1  -J % dockutil --remove \'%\'
+dockutil --add /Applications/Google\ Chrome.app
+dockutil --add /Applications/1Password\ 6.app
+dockutil --add /Applications/Adobe\ Lightroom/Adobe\ Lightroom.app
+dockutil --add /Applications/Slack.app
+dockutil --add /Applications/iMovie.app
 
 
 ###############################################################################
