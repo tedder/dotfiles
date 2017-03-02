@@ -13,13 +13,25 @@ brew upgrade
 # Install GNU core utilities (those that come with OS X are outdated)
 brew install coreutils
 #? echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
-brew install coreutils findutils unrar bash dockutil gpg-agent gnupg2 keybase
+brew install coreutils findutils unrar bash dockutil gpg-agent gnupg2 keybase lzlib jsonlint imagemagick pgcli jq
+
 
 # stanson toolchain
-brew install ansible
+brew install ansible gnu-tar
 
 # standard toolchain
-brew install git python mosh wget watch nmap bash-completion
+brew install git python python3 mosh wget watch nmap bash-completion
+
+# python
+python3 -m ensurepip
+
+# speaking of python, make sure we have a .pth for earlier lookup.
+# https://github.com/Homebrew/legacy-homebrew/issues/27138
+mkdir -p ~/Library/Python/2.7/lib/python/site-packages && echo "$(brew --prefix)/lib/python2.7/site-packages" > ~/Library/Python/2.7/lib/python/site-packages/homebrew.pth
+mkdir -p ~/Library/Python/3.6/lib/python/site-packages && echo "$(brew --prefix)/lib/python3.6/site-packages" > ~/Library/Python/3.6/lib/python/site-packages/homebrew.pth
+
+# noncrashy term
+brew cask install iterm2
 
 # ruby
 brew install chruby ruby-install
@@ -27,12 +39,17 @@ brew install chruby ruby-install
 # ruby versions
 ruby-install ruby 2.1.3
 
+# node
+brew install nvm
+
 # beardedspice (audio controller that can pause apps from keyboard)
 brew install Caskroom/cask/beardedspice
 
 # microsoft fonts (so spreadsheets/text editor quit complaining about Calibri)
 brew tap colindean/fonts-nonfree && brew cask install font-microsoft-office
 
+# misc
+brew install youtube-dl
 
 # Remove outdated versions from the cellar
 brew cleanup

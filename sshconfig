@@ -9,6 +9,13 @@ ForwardAgent yes
 
 #Host github.com
 	#LogLevel DEBUG
+Host beebs
+  HostName 192.168.0.23
+  User ted
+Host beebs.tedder.me
+  Port 666
+  User ted
+  HostName beebs.tedder.me
 Host garagepi pigarage
   HostName 10.250.250.42
   ConnectTimeout 20
@@ -33,9 +40,9 @@ Host picam
 	User pi
 	Port 2225
 	HostName home.perljam.net
-Host piwall wallpi
+Host piwall wallpi 192.168.0.21
   User pi
-  HostName 10.250.250.41
+  HostName 192.168.0.21
 Host piwall2
   User pi
   HostName 192.168.1.95
@@ -70,22 +77,26 @@ Host seedbox2 seedbox
   #Port 22
 
 
-Host *.stansonhealth.com
-  User ubuntu
-Host *.ssh.stansonhealth.com
-  User ubuntu
-  IdentityFile ~/.ssh/stanson-aws.pem
-  ForwardAgent yes
-Host *.internal.stansonhealth.com
-  User ubuntu
-  IdentityFile ~/.ssh/stanson-aws.pem
-  ForwardAgent yes
 Host bitbucket.org
   IdentityFile ~/.ssh/ted_stanson_id_rsa
-Host *.us-west-2.compute.amazonaws.com 10.192.* *.uswest2.stansonhealth.com
+Host *.ssh.stansonhealth.com 172.31.* *.internal.stansonhealth.com
   User ubuntu
-  IdentityFile ~/.ssh/stanson-oregon-aws.pem
-Host 172.31.*
-  User ubuntu
+  IdentityFile ~/.ssh/server_key_20160506.key
   IdentityFile ~/.ssh/stanson-aws.pem
   ForwardAgent yes
+Host 10.2.*
+  User ubuntu
+  IdentityFile ~/.ssh/server_key_20160506_prod.key
+  IdentityFile ~/.ssh/stanson-prod.pem
+  ForwardAgent yes
+Host 10.*
+  User ubuntu
+  IdentityFile ~/.ssh/server_key_20160506.key
+  #IdentityFile ~/.ssh/stanson-staging.pem
+  ForwardAgent yes
+Host *.us-west-2.compute.amazonaws.com 10.192.* *.uswest2.stansonhealth.com 10.200.*
+  User ubuntu
+  IdentityFile ~/.ssh/stanson-oregon-aws.pem
+Host *.stansonhealth.com 10.*
+  User ubuntu
+

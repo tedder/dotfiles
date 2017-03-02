@@ -54,24 +54,24 @@ autocmd BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn
 ":set list
 ":set listchars=tab:\|\<Space>
 
-execute pathogen#infect()
+" execute pathogen#infect()
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_id_checkers = 1
-
-" let g:syntastic_quiet_messages = { 'regex': 'bad-continuation\|bad-indentation\|missing-docstring\|no-self-use' }
-let g:syntastic_python_checkers = ["pyflakes", "python"]
-"Available checkers: pyflakes pylint python
-let g:syntastic_html_tidy_ignore_errors = [ '<script> proprietary attribute "integrity"', '<script> proprietary attribute "crossorigin"', "'<' + '/' + letter not allowed here" ]
-" ]
-let g:syntastic_html_tidy_exec = 'tidy'
-
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" 
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 2
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_id_checkers = 1
+" 
+" " let g:syntastic_quiet_messages = { 'regex': 'bad-continuation\|bad-indentation\|missing-docstring\|no-self-use' }
+" let g:syntastic_python_checkers = ["pyflakes", "python"]
+" "Available checkers: pyflakes pylint python
+" let g:syntastic_html_tidy_ignore_errors = [ '<script> proprietary attribute "integrity"', '<script> proprietary attribute "crossorigin"', "'<' + '/' + letter not allowed here" ]
+" " ]
+" let g:syntastic_html_tidy_exec = 'tidy'
+" 
 
 

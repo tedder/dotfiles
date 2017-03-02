@@ -3,6 +3,9 @@
 mkdir ~/.ssh/
 ln -s ~/git/dotfiles/bashprofile ~/.profile
 ln -s ~/git/dotfiles/sshconfig ~/.ssh/config
+
+mkdir -p ~/.config/yamllint/
+ln -s ~/git/dotfiles/yamllintconfig ~/.config/yamllint/config
 chmod 600 ~/.ssh/config
 ln -s ~/git/dotfiles/gitconfig ~/.gitconfig
 
@@ -29,7 +32,8 @@ sh brew
 sh osx
 
 sudo gem install jekyll s3_website compass bootstrap-sass
-
+sudo -H pip3 install --upgrade --extra-index-url https://ops.stansonhealth.technology/python/simple/ PyStanson pycryptodome awscli yamllint git+git://github.com/ansible/ansible.git@devel#egg=ansible
+sudo -H pip install boto boto3
 
 ## requires xcode / command line tools
 #sudo pip install pyobjc

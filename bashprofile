@@ -13,7 +13,7 @@ echo "done"
 
 export CLICOLOR=1
 export HOMEBREW_GITHUB_API_TOKEN="`cat ${HOME}/Dropbox/ted-geek/brew-github-key.txt`"
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH:$HOME/git/dotfiles/bin/:/usr/local/Cellar/python3/3.4.3/Frameworks/Python.framework/Versions/3.4/bin/:~/git/stansonhealth/provisioning/files/helpers/
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH:$HOME/git/dotfiles/bin/:/usr/local/Cellar/python3/3.6.0/Frameworks/Python.framework/Versions/3.6/bin/:~/git/stansonhealth/provisioning/files/helpers/
 
 export GOPATH=$HOME/git/go
 #export PYTHONPATH=/usr/local/lib/python2.7/site-packages
