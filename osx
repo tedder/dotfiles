@@ -140,6 +140,11 @@ defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 # http://petapixel.com/2015/12/21/stop-apple-photos-from-auto-launching-in-os-x-with-one-command/
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
 
+# cool off, ksfetch. Google process that connects endlessly and is a random service,
+# so Little Snitch is confused every damn time.
+defaults write com.google.Keystone.Agent checkInterval 604800
+
+
 
 dockutil --list | grep persistent-apps | cut -f 1 | egrep -v "Siri" | xargs -L 1  -J % dockutil --remove \'%\'
 dockutil --add /Applications/Google\ Chrome.app
@@ -152,6 +157,8 @@ dockutil --add /Applications/Slack.app
 
 # docker
 wget -nd -c -P ~/Downloads/  https://download.docker.com/mac/beta/Docker.dmg && open ~/Downloads/Docker.dmg
+
+
 
 
 ###############################################################################

@@ -1,19 +1,22 @@
-if [[ ! `pgrep gpg-agent` ]] || [[ ! -f "${HOME}/.gpg-agent-info" ]]; then
-  echo "starting gpg"
-  gpg-agent --daemon --enable-ssh-support --write-env-file "${HOME}/.gpg-agent-info" --quiet
-  echo "done."
-fi
+# 2.0 gpg-agent, 1.1 dirmngr: #export PATH="/usr/local/opt/gpg-agent/bin:/usr/local/opt/dirmngr/bin:
+export PATH="$HOME/git/dotfiles/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:~/git/stansonhealth/provisioning/files/helpers:/usr/local/opt/qt@5.5/bin:/usr/local/opt/qt/bin:/usr/sbin:/sbin:/opt/X11/bin:$PATH"
+
+# "Remember to add "use-standard-socket" to your ~/.gnupg/gpg-agent.conf"
+#if [[ ! `pgrep gpg-agent` ]] || [[ ! -f "${HOME}/.gpg-agent-info" ]]; then
+  #echo "starting gpg"
+  #gpg-agent --daemon --enable-ssh-support --write-env-file "${HOME}/.gpg-agent-info" --quiet
+  #echo "done."
+#fi
 
 echo "sourcing gpg"
-#. "${HOME}/.gpg-agent-info"
-. ~/.gpg-agent-info && export GPG_AGENT_INFO && export SSH_AUTH_SOCK && export SSH_AGENT_PID
-echo "done"
-#export GPG_AGENT_INFO
-#export SSH_AUTH_SOCK
+##. "${HOME}/.gpg-agent-info"
+#. ~/.gpg-agent-info && export GPG_AGENT_INFO && export SSH_AUTH_SOCK && export SSH_AGENT_PID
+#echo "done"
+##export GPG_AGENT_INFO
+##export SSH_AUTH_SOCK
 
 export CLICOLOR=1
 export HOMEBREW_GITHUB_API_TOKEN="`cat ${HOME}/Dropbox/ted-geek/brew-github-key.txt`"
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH:$HOME/git/dotfiles/bin/:/usr/local/Cellar/python3/3.6.0/Frameworks/Python.framework/Versions/3.6/bin/:~/git/stansonhealth/provisioning/files/helpers/
 
 export GOPATH=$HOME/git/go
 #export PYTHONPATH=/usr/local/lib/python2.7/site-packages
@@ -42,10 +45,10 @@ alias aprs='python -c "import sys,aprslib,json;a=aprslib.parse(sys.argv[1]);prin
 alias lsusb='system_profiler SPUSBDataType'
 alias docker2='dlite'
 alias fix_sd_card_permissions='chflags nouchg '
+alias tar=/usr/local/bin/tar
+alias disable_app_translocation='xattr -r -d com.apple.quarantine '
 
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-fi
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 source /usr/local/share/chruby/chruby.sh
 

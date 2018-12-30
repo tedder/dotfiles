@@ -23,6 +23,17 @@ set hlsearch
 "  n... :  where to save the viminfo files
 set viminfo='10,\"100,:20,%,n~/.viminfo
 
+" examples: ç ± ცᕦဨဢᒦႂႊᅦႪႦ
+" TED 20180901
+" syntax match nonascii "[^\x00-\x7F]"
+" au BufReadPost * highlight nonascii guibg=Red ctermbg=116
+
+
+" Whitespace character display
+"ted set listchars=trail:~,extends:>,precedes:<
+" Display them
+"ted set list
+
 set directory=/tmp
 function! ResCur()
   if line("'\"") <= line("$")

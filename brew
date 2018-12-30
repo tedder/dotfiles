@@ -48,8 +48,11 @@ brew install Caskroom/cask/beardedspice
 # microsoft fonts (so spreadsheets/text editor quit complaining about Calibri)
 brew tap colindean/fonts-nonfree && brew cask install font-microsoft-office
 
+# chirp (ham)
+brew install tdsmith/ham/chirp
+
 # misc
-brew install youtube-dl
+brew install youtube-dl rename
 
 # Remove outdated versions from the cellar
 brew cleanup

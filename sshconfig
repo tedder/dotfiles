@@ -2,16 +2,40 @@ Compression yes
 ServerAliveInterval 9
 HashKnownHosts no
 ForwardAgent yes
+UseKeychain yes
+#ControlPersist 600
 
 #ControlMaster auto
 #ControlPath ~/.ssh/sockets/%r@%h-%p
-#ControlPersist 600
 
 #Host github.com
 	#LogLevel DEBUG
+Host irc
+  HostName 35.164.156.58
+  User ubuntu
 Host beebs
   HostName 192.168.0.23
   User ted
+Host doorcam doorbell pidoor
+  HostName 192.168.0.24
+  User pi
+Host zbox zbox.tedder.me
+  HostName 192.168.0.25
+  User ted
+Host nucbox nucbox.tedder.me
+  HostName 192.168.0.21
+  User ted
+#Host pizeroone zeroone
+#  HostName 192.168.0.26
+#  User pi
+#  ControlPersist 600
+Host qnap_nas
+  HostName 192.168.0.26
+  User pi
+Host octopi octoprint octopi.local octopi.tedder.me
+  HostName 192.168.0.28
+  User pi
+  ControlPersist 600
 Host beebs.tedder.me
   Port 666
   User ted
@@ -20,10 +44,10 @@ Host garagepi pigarage
   HostName 10.250.250.42
   ConnectTimeout 20
   User pi
-Host pidoor
-  HostName 10.250.250.43
-  ConnectTimeout 20
-  User pi
+#Host pidoor
+#  HostName 10.250.250.43
+#  ConnectTimeout 20
+#  User pi
 Host static
 	HostName 209.61.142.60
 	User ted
@@ -36,6 +60,9 @@ Host myth-home myth-local
 	User tedder
 	Port 22
 	HostName 192.168.1.82
+Host prusa piprusa prusapi
+	User pi
+	HostName 192.168.0.29
 Host picam
 	User pi
 	Port 2225
@@ -59,6 +86,14 @@ Host picam-local
 Host geekisp
 	HostName login.geekisp.com
 	User tedt
+Host 34.228.112.184
+  User ubuntu
+  ForwardAgent yes
+  IdentityFile ~/.ssh/ted_stanson_id_rsa
+Host 10.99.*
+  User ubuntu
+  ForwardAgent yes
+  IdentityFile ~/.ssh/ted_stanson_id_rsa
 Host *.amazonaws.com
 	User ubuntu
 Host pi pi.perljam.net
@@ -81,18 +116,21 @@ Host bitbucket.org
   IdentityFile ~/.ssh/ted_stanson_id_rsa
 Host *.ssh.stansonhealth.com 172.31.* *.internal.stansonhealth.com
   User ubuntu
+  IdentityFile ~/.ssh/server_key_20170717_prod.key
   IdentityFile ~/.ssh/server_key_20160506.key
   IdentityFile ~/.ssh/stanson-aws.pem
   ForwardAgent yes
 Host 10.2.*
   User ubuntu
-  IdentityFile ~/.ssh/server_key_20160506_prod.key
-  IdentityFile ~/.ssh/stanson-prod.pem
+  #IdentityFile ~/.ssh/stanson-prod.pem
+  #IdentityFile ~/.ssh/server_key_20170717_prod.key
+  #IdentityFile ~/.ssh/server_key_20160506_prod.key
   ForwardAgent yes
 Host 10.*
   User ubuntu
-  IdentityFile ~/.ssh/server_key_20160506.key
-  #IdentityFile ~/.ssh/stanson-staging.pem
+  #IdentityFile ~/.ssh/server_key_20160506.key
+  IdentityFile ~/.ssh/server_key_20170717_prod.key
+  ##IdentityFile ~/.ssh/stanson-staging.pem
   ForwardAgent yes
 Host *.us-west-2.compute.amazonaws.com 10.192.* *.uswest2.stansonhealth.com 10.200.*
   User ubuntu
