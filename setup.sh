@@ -6,6 +6,7 @@ DOTDIR=`pwd`
 # aws
 mkdir -p ~/.aws/
 [[ -f ~/.aws/config ]] || ln -s ~/Dropbox/ted-geek/aws-config ~/.aws/config
+[[ -f ~/.aws/credentials ]] || ln -s ~/Dropbox/ted-geek/aws-credentials ~/.aws/credentials
 
 #vim
 mkdir -p ~/.vim/colors/
@@ -20,7 +21,8 @@ cp ~/Dropbox/ted-geek/ssh/mythtv/id* ~/.ssh/
 chmod 600 ~/.ssh/id*
 
 #bash
-ln -s $DOTDIR/bashprofile ~/.profile
+[[ -f ~/.profile ]] || ln -s $DOTDIR/bashprofile ~/.profile
+
 
 # git
 [[ -f ~/.gitconfig ]] || ln -s $DOTDIR/gitconfig ~/.gitconfig
