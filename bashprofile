@@ -84,3 +84,8 @@ _pip_completion()
 complete -o default -F _pip_completion pip
 # pip bash completion end
 
+alias tf="terraform"
+alias tffmt="terraform fmt -diff=true"
+
+source ~/.bash_sigsci
+
