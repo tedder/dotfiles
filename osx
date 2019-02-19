@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # sources:
 # https://github.com/mathiasbynens/dotfiles/blob/master/.osx
 
@@ -86,8 +88,8 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 defaults write com.apple.terminal StringEncodings -array 4
 
 # import themes
-open ~/git/dotfiles/Solarized\ Light\ xterm-256color.terminal
-open ~/git/dotfiles/Solarized\ Dark\ xterm-256color.terminal
+open Solarized\ Light\ xterm-256color.terminal
+open Solarized\ Dark\ xterm-256color.terminal
 
 # set light as default
 defaults write com.apple.terminal "Default Window Settings" -string "Solarized Light xterm-256color"
@@ -127,7 +129,7 @@ defaults write com.apple.dock autohide -boolean True
 
 
 # go away, facetime.
-rm /Users/ted/Library/Preferences/com.apple.facetime.bag.plist /Users/ted/Library/Preferences/com.apple.imservice.ids.FaceTime.plist
+rm -f /Users/ted/Library/Preferences/com.apple.facetime.bag.plist /Users/ted/Library/Preferences/com.apple.imservice.ids.FaceTime.plist
 
 # set date/time/clock to show date and day and 24hr
 defaults write com.apple.menuextra.clock 'DateFormat' -string 'EEE MMM d   H:mm'
@@ -145,19 +147,22 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
 defaults write com.google.Keystone.Agent checkInterval 604800
 
 
-
+brew install dockutil
 dockutil --list | grep persistent-apps | cut -f 1 | egrep -v "Siri" | xargs -L 1  -J % dockutil --remove \'%\'
 dockutil --add /Applications/Google\ Chrome.app
-dockutil --add /Applications/1Password\ 6.app
-dockutil --add /Applications/Adobe\ Lightroom/Adobe\ Lightroom.app
+dockutil --add /Applications/1Password*.app
+if [ -e /Applications/Adobe\ Lightroom/Adobe\ Lightroom.app ]; then
+  dockutil --add /Applications/Adobe\ Lightroom/Adobe\ Lightroom.app
+fi
+
 dockutil --add /Applications/Slack.app
 dockutil --add /Applications/iMovie.app
 dockutil --add /Applications/Utilities/Terminal.app
 dockutil --add /Applications/Slack.app
 
 # docker
-wget -nd -c -P ~/Downloads/  https://download.docker.com/mac/beta/Docker.dmg && open ~/Downloads/Docker.dmg
-
+#wget -nd -c -P ~/Downloads/  https://download.docker.com/mac/beta/Docker.dmg && open ~/Downloads/Docker.dmg
+#
 
 
 

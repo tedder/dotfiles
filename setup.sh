@@ -1,37 +1,36 @@
 #!/bin/bash -exv
 
+DOTDIR=`pwd`
+# rm -rf ~/.vim ~/.vimrc ~/.wgetrc ~/.aws/config ~/.gitconfig ~/.config/yamllint/config ~/.ssh/config ~/.profile
+
 # aws
 mkdir -p ~/.aws/
 [[ -f ~/.aws/config ]] || ln -s ~/Dropbox/ted-geek/aws-config ~/.aws/config
 
 #vim
 mkdir -p ~/.vim/colors/
-[[ -f ~/.vimrc ]] || ln -s ~/git/dotfiles/vimrc ~/.vimrc
+[[ -f ~/.vimrc ]] || ln -s $DOTDIR/vimrc ~/.vimrc
 
 # ssh
 mkdir -p ~/.ssh/
-#ln -s ~/git/dotfiles/bashprofile ~/.profile
-[[ -f ~/.ssh/config ]] || ln -s ~/git/dotfiles/sshconfig ~/.ssh/config
-
+[[ -f ~/.ssh/config ]] || ln -s $DOTDIR/sshconfig ~/.ssh/config
 chmod 600 ~/.ssh/config
 
 cp ~/Dropbox/ted-geek/ssh/mythtv/id* ~/.ssh/
 chmod 600 ~/.ssh/id*
-#cp ~/Dropbox/ted-geek/ssh/stanson/ted_stanson_id_rs* ~/.ssh/
-#chmod 600 ~/.ssh/ted_stanson_id*
 
+#bash
+ln -s $DOTDIR/bashprofile ~/.profile
 
 # git
-[[ -f ~/.gitconfig ]] || ln -s ~/git/dotfiles/gitconfig ~/.gitconfig
+[[ -f ~/.gitconfig ]] || ln -s $DOTDIR/gitconfig ~/.gitconfig
 
 # misc
 mkdir -p ~/.config/yamllint/
-[[ -f ~/.config/yamllint/config ]] || ln -s ~/git/dotfiles/yamllintconfig ~/.config/yamllint/config
-[[ -f ~/.bc ]] || ln -s ~/git/dotfiles/bcrc ~/.bc
-[[ -f ~/.wgetrc ]] || ln -s ~/git/dotfiles/wgetrc ~/.wgetrc
+[[ -f ~/.config/yamllint/config ]] || ln -s $DOTDIR/yamllintconfig ~/.config/yamllint/config
 
-
-
+[[ -f ~/.bc ]] || ln -s $DOTDIR/bcrc ~/.bc
+[[ -f ~/.wgetrc ]] || ln -s $DOTDIR/wgetrc ~/.wgetrc
 
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -71,7 +70,7 @@ sudo -H pip3 install boto boto3 youtube-dl awscli yamllint
 # requires package installs- eg curl
 
 mkdir -p ~/.vim/autoload/ ~/.vim/bundle/
-[[ -f ~/.vim/colors/solarized.vim ]] || ln -s ~/git/dotfiles/vim/colors/solarized.vim ~/.vim/colors/
+[[ -f ~/.vim/colors/solarized.vim ]] || ln -s $DOTDIR/vim/colors/solarized.vim ~/.vim/colors/
 if [ ! -e ~/.vim/autoload/pathogen.vim ]
   then curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 fi

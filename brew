@@ -13,7 +13,11 @@ brew upgrade
 # Install GNU core utilities (those that come with OS X are outdated)
 brew install coreutils
 #? echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
-brew install coreutils findutils unrar bash dockutil gpg-agent gnupg2 keybase lzlib jsonlint imagemagick pgcli jq
+brew install coreutils findutils unrar bash dockutil gpg-agent gnupg2 keybase lzlib jsonlint imagemagick pgcli jq ffmpeg homebrew/cask-drivers/brother-p-touch-editor jq
+
+# sigsci chef
+brew cask install chef/chef/chef-workstation terraform terraform_landscape
+
 
 
 # stanson toolchain
@@ -32,6 +36,7 @@ mkdir -p ~/Library/Python/3.6/lib/python/site-packages && echo "$(brew --prefix)
 
 # noncrashy term
 brew cask install iterm2
+brew cask install vlc
 
 # ruby
 brew install chruby ruby-install

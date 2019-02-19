@@ -9,6 +9,7 @@ set background=light
 "colorscheme solarized
 
 set synmaxcol=900 " stop syntax highlighting on super-long lines
+set nomodeline " don't let individual files hijack my settings: http://vim.wikia.com/wiki/Modeline_magic
 
 set ts=2  " 2-char tab stop
 set ruler
