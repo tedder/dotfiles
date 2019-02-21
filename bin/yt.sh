@@ -1,7 +1,7 @@
 #!/bin/bash -exv
 
-mkdir -p ~/Downloads/yt
-youtube-dl --abort-on-error --batch-file /Users/ted/Dropbox/_evernote/youtube.txt
+#mkdir -p ~/Downloads/yt
+youtube-dl --config-location /mnt/qnas/videos/yt/.yt.conf
 # -v --print-traffic
 
 #youtube-dl --abort-on-error --download-archive /Users/ted/Downloads/yt/.ytlist \

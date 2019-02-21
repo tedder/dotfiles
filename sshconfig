@@ -2,7 +2,7 @@ Compression yes
 ServerAliveInterval 9
 HashKnownHosts no
 ForwardAgent yes
-UseKeychain yes
+#UseKeychain yes
 #ControlPersist 600
 
 #ControlMaster auto
@@ -36,6 +36,9 @@ Host octopi octoprint octopi.local octopi.tedder.me
   HostName 192.168.0.28
   User pi
   ControlPersist 600
+Host satnogs1 pisat satnogs
+  HostName 192.168.0.34
+  User pi
 Host beebs.tedder.me
   Port 666
   User ted
@@ -83,17 +86,6 @@ Host picam-local
 	Port 22
 	HostName 192.168.1.49
   #x11vnc -passwd fart -display :0 -no6 -reopen -shared -noipv6 -forever -ncache 10
-Host geekisp
-	HostName login.geekisp.com
-	User tedt
-Host 34.228.112.184
-  User ubuntu
-  ForwardAgent yes
-  IdentityFile ~/.ssh/ted_stanson_id_rsa
-Host 10.99.*
-  User ubuntu
-  ForwardAgent yes
-  IdentityFile ~/.ssh/ted_stanson_id_rsa
 Host *.amazonaws.com
 	User ubuntu
 Host pi pi.perljam.net
@@ -110,31 +102,4 @@ Host seedbox2 seedbox
   User root
   Port 666
   #Port 22
-
-
-Host bitbucket.org
-  IdentityFile ~/.ssh/ted_stanson_id_rsa
-Host *.ssh.stansonhealth.com 172.31.* *.internal.stansonhealth.com
-  User ubuntu
-  IdentityFile ~/.ssh/server_key_20170717_prod.key
-  IdentityFile ~/.ssh/server_key_20160506.key
-  IdentityFile ~/.ssh/stanson-aws.pem
-  ForwardAgent yes
-Host 10.2.*
-  User ubuntu
-  #IdentityFile ~/.ssh/stanson-prod.pem
-  #IdentityFile ~/.ssh/server_key_20170717_prod.key
-  #IdentityFile ~/.ssh/server_key_20160506_prod.key
-  ForwardAgent yes
-Host 10.*
-  User ubuntu
-  #IdentityFile ~/.ssh/server_key_20160506.key
-  IdentityFile ~/.ssh/server_key_20170717_prod.key
-  ##IdentityFile ~/.ssh/stanson-staging.pem
-  ForwardAgent yes
-Host *.us-west-2.compute.amazonaws.com 10.192.* *.uswest2.stansonhealth.com 10.200.*
-  User ubuntu
-  IdentityFile ~/.ssh/stanson-oregon-aws.pem
-Host *.stansonhealth.com 10.*
-  User ubuntu
 

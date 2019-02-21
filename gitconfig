@@ -2,7 +2,7 @@
 	name = tedder
 #	email = ted.timmons@stansonhealth.com
 	email = ted@timmons.me
-	signingkey = 445213BF
+	#signingkey = 445213BF
 [push]
 	default = simple
 [alias]
@@ -10,7 +10,7 @@
 	ci = commit
 [color]
 	ui = true
-[commit]
-	gpgsign = true
-[gpg]
-	program = gpg
+#[commit]
+#	gpgsign = true
+#[gpg]
+#	program = gpg

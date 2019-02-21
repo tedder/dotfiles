@@ -47,6 +47,11 @@ alias docker2='dlite'
 alias fix_sd_card_permissions='chflags nouchg '
 alias tar=/usr/local/bin/tar
 alias disable_app_translocation='xattr -r -d com.apple.quarantine '
+alias parsec='parsecd app_daemon=1'
+
+alias df='df -x"squashfs" -x"tmpfs" --output="source,fstype,size,used,avail,pcent,target,itotal,iused,ipcent"'
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
 
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
