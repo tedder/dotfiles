@@ -110,6 +110,7 @@ Host seedbox2 seedbox
   Port 666
   #Port 22
 Host github-tedder
+  HostName github.com
   User git
 	IdentityFile ~/.ssh/id_rsa_myth
 	IdentitiesOnly yes
