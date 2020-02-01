@@ -17,6 +17,10 @@ Host beebs
   HostName 192.168.0.23
   User ted
   IdentityFile ~/.ssh/id_rsa_myth
+Host piada
+  HostName 192.168.0.36
+  User pi
+  IdentityFile ~/.ssh/id_rsa_myth
 Host doorcam doorbell pidoor
   HostName 192.168.0.24
   User pi
@@ -26,27 +30,22 @@ Host zbox zbox.tedder.me
   User ted
 Host nucbox nucbox.tedder.me
   HostName 192.168.3.21
+<<<<<<< HEAD
   User ted
   IdentityFile ~/.ssh/id_rsa_myth
 Host nuc7i7
   HostName 192.168.3.38
+=======
+>>>>>>> incr from mac
   User ted
   IdentityFile ~/.ssh/id_rsa_myth
-Host nuc
+Host nuc8 nuc 192.168.0.60
   HostName 192.168.0.60
   User ted
   IdentityFile ~/.ssh/id_rsa_myth
-#Host pizeroone zeroone
-#  HostName 192.168.0.26
-#  User pi
-#  ControlPersist 600
 Host qnap_nas
   HostName 192.168.0.26
   User pi
-Host octopi octoprint octopi.local octopi.tedder.me
-  HostName 192.168.0.28
-  User pi
-  ControlPersist 600
 Host satnogs1 pisat satnogs
   HostName 192.168.0.34
   User pi
@@ -54,14 +53,6 @@ Host beebs.tedder.me
   Port 666
   User ted
   HostName beebs.tedder.me
-Host garagepi pigarage
-  HostName 10.250.250.42
-  ConnectTimeout 20
-  User pi
-#Host pidoor
-#  HostName 10.250.250.43
-#  ConnectTimeout 20
-#  User pi
 Host static
 	HostName 209.61.142.60
 	User ted
@@ -77,6 +68,7 @@ Host myth-home myth-local
 Host prusa piprusa prusapi
 	User pi
 	HostName 192.168.0.29
+
 Host picam
 	User pi
 	Port 2225
@@ -89,11 +81,6 @@ Host picam-local
   #x11vnc -passwd fart -display :0 -no6 -reopen -shared -noipv6 -forever -ncache 10
 Host *.amazonaws.com
 	User ubuntu
-Host pi pi.perljam.net
-	HostName pi.perljam.net
-	#HostName 92.63.174.28
-	User pi
-  ForwardAgent yes
 Host seedbox1
   HostName seedbox1.tedder.me
   User root
@@ -120,3 +107,31 @@ Host github-tedder
   User git
 	IdentityFile ~/.ssh/id_rsa_myth
 	IdentitiesOnly yes
+Host homenuc
+  HostName home.tedder.me
+  Port 667
+  User ted
+	IdentityFile ~/.ssh/id_rsa_myth
+Host home.tedder.me home
+  HostName home.tedder.me
+  Port 666
+  User ted
+	IdentityFile ~/.ssh/id_rsa_myth
+#Host *.sigsci.in
+#  ProxyCommand duoconnect -host=%h:%p -relay=https://ginger.prod.sigsci.net
+#  IdentityFile ~/.ssh/chef.pem
+#  User ubuntu
+Host *.sigsci.in
+  User ted
+  ProxyCommand duoconnect -host=%h:%p -relay=https://ginger.beefalo.sigsci.net
+  IdentityFile ~/.ssh/id_ed25519
+Host eriktest
+  HostName 172.22.16.46
+  User ubuntu
+  ProxyCommand duoconnect -host=%h:%p -relay=https://ginger.beefalo.sigsci.net
+  IdentityFile ~/.ssh/chef.pem
+Host 172.2*.*.*
+  ProxyCommand duoconnect -host=%h:%p -relay=https://ginger.beefalo.sigsci.net
+  IdentityFile ~/.ssh/id_ed25519
+  #IdentityFile ~/.ssh/id_rsa
+

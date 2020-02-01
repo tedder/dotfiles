@@ -1,5 +1,27 @@
 # 2.0 gpg-agent, 1.1 dirmngr: #export PATH="/usr/local/opt/gpg-agent/bin:/usr/local/opt/dirmngr/bin:
-export PATH="$HOME/git/dotfiles/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:~/git/stansonhealth/provisioning/files/helpers:/usr/local/opt/qt@5.5/bin:/usr/local/opt/qt/bin:/usr/sbin:/sbin:/opt/X11/bin:$PATH"
+export PATH="$HOME/.okta/bin/:$HOME/git/dotfiles/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:~/git/stansonhealth/provisioning/files/helpers:/usr/local/opt/qt@5.5/bin:/usr/local/opt/qt/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/ted/Library/Python/3.7/bin:$PATH"
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+
+function okta_hello() {
+  echo "core"
+  OKTA_AWS_ROLE_TO_ASSUME="arn:aws:iam::669843297275:role/Full-Administrator" \
+  okta-aws sigsci_core sts get-caller-identity
+
+  echo "jump"
+  OKTA_AWS_ROLE_TO_ASSUME="arn:aws:iam::827012779870:role/Full-Administrator" \
+  okta-aws sigsci_jump sts get-caller-identity
+
+  echo "prod"
+  OKTA_AWS_ROLE_TO_ASSUME="arn:aws:iam::803688608479:role/Full-Administrator" \
+  okta-aws sigsci_prod sts get-caller-identity
+
+  echo "dev"
+  OKTA_AWS_ROLE_TO_ASSUME="arn:aws:iam::021874968854:role/Full-Administrator" \
+  okta-aws sigsci_dev sts get-caller-identity
+}
+
+. ~/.okta/bash_functions
 
 # "Remember to add "use-standard-socket" to your ~/.gnupg/gpg-agent.conf"
 #if [[ ! `pgrep gpg-agent` ]] || [[ ! -f "${HOME}/.gpg-agent-info" ]]; then
@@ -40,8 +62,6 @@ export NVM_DIR=~/.nvm
 #alias tower="ssh -i ~/.ssh/stanson-aws.pem -N -L 1613:localhost:443 ubuntu@tower.ssh.stansonhealth.com"
 #alias vash="mosh --ssh='ssh -o IdentityFile=/Users/ted/.vagrant.d/insecure_private_key -o StrictHostKeyChecking=no -p 2222' vagrant@127.0.0.1"
 #alias gocd="ssh -i ~/.ssh/stanson-aws.pem -N -L 8153:localhost:8153 ubuntu@gocd.ssh.stansonhealth.com"
-alias twtxt="python3 ~/git/twtxt/twtxt/cli.py"
-alias aprs='python -c "import sys,aprslib,json;a=aprslib.parse(sys.argv[1]);print(json.dumps(a,indent=2));print(\"http://www.openstreetmap.org/index.html?lat={0}&lon={1}&mlat={0}&mlon={1}&zoom=16\".format(a[\"latitude\"],a[\"longitude\"]))"'
 alias lsusb='system_profiler SPUSBDataType'
 alias docker2='dlite'
 alias fix_sd_card_permissions='chflags nouchg '
@@ -49,13 +69,21 @@ alias tar=/usr/local/bin/tar
 alias disable_app_translocation='xattr -r -d com.apple.quarantine '
 alias parsec='parsecd app_daemon=1'
 
-alias df='df -x"squashfs" -x"tmpfs" --output="source,fstype,size,used,avail,pcent,target,itotal,iused,ipcent"'
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
+OS="NOPE"
+[ -f /etc/os-release ] && OS=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
+#echo $OS
+if [[ $OS == *"Ubuntu"* ]]; then
+
+  alias twtxt="python3 ~/git/twtxt/twtxt/cli.py"
+  alias aprs='python -c "import sys,aprslib,json;a=aprslib.parse(sys.argv[1]);print(json.dumps(a,indent=2));print(\"http://www.openstreetmap.org/index.html?lat={0}&lon={1}&mlat={0}&mlon={1}&zoom=16\".format(a[\"latitude\"],a[\"longitude\"]))"'
+  alias df='df -x"squashfs" -x"tmpfs" --output="source,fstype,size,used,avail,pcent,target,itotal,iused,ipcent"'
+  alias pbcopy='xclip -selection clipboard'
+  alias pbpaste='xclip -selection clipboard -o'
+fi
 
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
-source /usr/local/share/chruby/chruby.sh
+#source /usr/local/share/chruby/chruby.sh
 
 # via: http://unix.stackexchange.com/a/1292/42232
 # http://askubuntu.com/a/566536/69983
@@ -86,6 +114,7 @@ complete -o default -F _pip_completion pip
 
 alias tf="terraform"
 alias tffmt="terraform fmt -diff=true"
+export GREP_OPTIONS='--exclude-dir=.terraform'
 
 source ~/.bash_sigsci
 
