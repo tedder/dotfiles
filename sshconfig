@@ -30,13 +30,10 @@ Host zbox zbox.tedder.me
   User ted
 Host nucbox nucbox.tedder.me
   HostName 192.168.3.21
-<<<<<<< HEAD
   User ted
   IdentityFile ~/.ssh/id_rsa_myth
 Host nuc7i7
   HostName 192.168.3.38
-=======
->>>>>>> incr from mac
   User ted
   IdentityFile ~/.ssh/id_rsa_myth
 Host nuc8 nuc 192.168.0.60
