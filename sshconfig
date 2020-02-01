@@ -22,10 +22,14 @@ Host doorcam doorbell pidoor
   User pi
   IdentityFile ~/.ssh/id_rsa_myth
 Host zbox zbox.tedder.me
-  HostName 192.168.0.25
+  HostName 192.168.3.25
   User ted
 Host nucbox nucbox.tedder.me
-  HostName 192.168.0.21
+  HostName 192.168.3.21
+  User ted
+  IdentityFile ~/.ssh/id_rsa_myth
+Host nuc7i7
+  HostName 192.168.3.38
   User ted
   IdentityFile ~/.ssh/id_rsa_myth
 Host nuc
@@ -77,16 +81,6 @@ Host picam
 	User pi
 	Port 2225
 	HostName home.perljam.net
-Host piwall wallpi 192.168.0.21
-  User pi
-  HostName 192.168.0.21
-Host piwall2
-  User pi
-  HostName 192.168.1.95
-Host external-piwall
-  User pi
-	HostName home.perljam.net
-  Port 9522
 # web on 4900
 Host picam-local
 	User pi
@@ -109,6 +103,18 @@ Host seedbox2 seedbox
   User root
   Port 666
   #Port 22
+Host dellr520 r520
+  HostName 192.168.3.14
+Host dellr610 r610
+  HostName 192.168.3.10
+Host blaze1
+  HostName 192.168.3.19
+Host blaze0
+  HostName 192.168.3.20
+Host blaze2
+  HostName 192.168.3.21
+Host blaze3
+  HostName 192.168.3.22
 Host github-tedder
   HostName github.com
   User git

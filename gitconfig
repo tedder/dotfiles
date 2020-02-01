@@ -20,3 +20,5 @@
 [url "git@github.com:signalsciences"]
 	insteadOf = https://github.com/signalsciences
 
+[status]
+	submoduleSummary = true

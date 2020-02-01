@@ -33,6 +33,7 @@ python3 -m ensurepip
 # https://github.com/Homebrew/legacy-homebrew/issues/27138
 mkdir -p ~/Library/Python/2.7/lib/python/site-packages && echo "$(brew --prefix)/lib/python2.7/site-packages" > ~/Library/Python/2.7/lib/python/site-packages/homebrew.pth
 mkdir -p ~/Library/Python/3.6/lib/python/site-packages && echo "$(brew --prefix)/lib/python3.6/site-packages" > ~/Library/Python/3.6/lib/python/site-packages/homebrew.pth
+mkdir -p ~/Library/Python/3.7/lib/python/site-packages && echo "$(brew --prefix)/lib/python3.7/site-packages" > ~/Library/Python/3.7/lib/python/site-packages/homebrew.pth
 
 # noncrashy term
 brew cask install iterm2

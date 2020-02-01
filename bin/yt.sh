@@ -1,7 +1,13 @@
 #!/bin/bash -exv
 
 #mkdir -p ~/Downloads/yt
-youtube-dl --config-location /mnt/qnas/videos/yt/.yt.conf
+/mnt/qnas/videos/yt-cookies.py > /mnt/qnas/videos/.youtube-cookies.txt
+youtube-dl --config-location /mnt/qnas/videos/.yt.conf --batch-file /mnt/qnas/videos/.youtube.txt
+if [ "$1" == "subs" ]; then
+  echo "running subs too"
+  youtube-dl --config-location /mnt/qnas/videos/.yt.conf --dateafter 20200101 --batch-file /mnt/qnas/videos/.youtube_channels.txt --ignore-errors
+fi
+# --ignore-errors
 # -v --print-traffic
 
 #youtube-dl --abort-on-error --download-archive /Users/ted/Downloads/yt/.ytlist \

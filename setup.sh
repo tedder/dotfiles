@@ -49,7 +49,8 @@ if [[ $OS == *"Ubuntu"* ]]; then
   sudo -H apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
   sudo -H apt-add-repository "deb https://deb.etcher.io stable etcher"
   sudo -H apt update
-  sudo -H apt install -y balena-etcher-electron mosquitto-clients youtube-dl ffmpeg barrier gthumb
+  sudo -H apt install -y balena-etcher-electron mosquitto-clients youtube-dl ffmpeg barrier gthumb exfat-utils rename arduino
+
 
   echo 1 > /sys/module/hid_apple/parameters/fnmode
   sudo snap install slack --classic
@@ -64,6 +65,8 @@ fi
 #sudo gem install jekyll s3_website compass bootstrap-sass
 #sudo -H pip3 install --upgrade --extra-index-url https://ops.stansonhealth.technology/python/simple/ PyStanson pycryptodome awscli yamllint git+git://github.com/ansible/ansible.git@devel#egg=ansible
 sudo -H pip3 install boto boto3 youtube-dl awscli yamllint
+
+[[ -f /usr/local/etc/bash_completion.d/aws_bash_completer.bash-completion ]] || sudo ln -s /usr/local/bin/aws_bash_completer /usr/local/etc/bash_completion.d/aws_bash_completer.bash-completion
 
 ## requires xcode / command line tools
 #sudo pip install pyobjc
