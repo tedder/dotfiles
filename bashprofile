@@ -1,7 +1,6 @@
 # 2.0 gpg-agent, 1.1 dirmngr: #export PATH="/usr/local/opt/gpg-agent/bin:/usr/local/opt/dirmngr/bin:
-export PATH="$HOME/.okta/bin/:$HOME/git/dotfiles/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:~/git/stansonhealth/provisioning/files/helpers:/usr/local/opt/qt@5.5/bin:/usr/local/opt/qt/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/ted/Library/Python/3.7/bin:$PATH"
+export PATH="$HOME/.okta/bin/:$HOME/git/dotfiles/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/usr/local/opt/qt@5.5/bin:/usr/local/opt/qt/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/ted/Library/Python/3.7/bin:$PATH"
 export BASH_SILENCE_DEPRECATION_WARNING=1
-
 
 function okta_hello() {
   echo "core"
@@ -112,9 +111,8 @@ _pip_completion()
 complete -o default -F _pip_completion pip
 # pip bash completion end
 
-alias tf="terraform"
-alias tffmt="terraform fmt -diff=true"
-export GREP_OPTIONS='--exclude-dir=.terraform'
+#alias tf="terraform"
+#alias tffmt="terraform fmt -diff=true"
 
 source ~/.bash_sigsci
 

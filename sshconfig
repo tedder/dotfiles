@@ -104,6 +104,9 @@ Host github-tedder
   User git
 	IdentityFile ~/.ssh/id_rsa_myth
 	IdentitiesOnly yes
+Host 192.168.3.*
+  User ted
+	IdentityFile ~/.ssh/id_rsa_myth
 Host homenuc
   HostName home.tedder.me
   Port 667
