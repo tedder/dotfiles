@@ -1,6 +1,8 @@
 mosquitto_sub -h mqtt.home.tedder.me -P $mqtt_password \
  -u octo -v \
- -t "iot/emon/#"
+ -t '#'
+ #-t 'motion/#'
+ #-t "iot/emon/#"
  #-t 'iot/esp8266-sensor-2f5114/#'
 # -T "iot/ups/#" \
 # -T "logging/#" \

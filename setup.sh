@@ -33,7 +33,7 @@ mkdir -p ~/.config/yamllint/
 
 [[ -f ~/.bc ]] || ln -s $DOTDIR/bcrc ~/.bc
 [[ -f ~/.wgetrc ]] || ln -s $DOTDIR/wgetrc ~/.wgetrc
-
+[[ -f ~/.pypirc ]] || ln -s $DOTDIR/pypirc ~/.pypirc
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   sh brew

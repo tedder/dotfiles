@@ -5,7 +5,7 @@
 youtube-dl --config-location /mnt/qnas/videos/.yt.conf --batch-file /mnt/qnas/videos/.youtube.txt
 if [ "$1" == "subs" ]; then
   echo "running subs too"
-  youtube-dl --config-location /mnt/qnas/videos/.yt.conf --dateafter 20200101 --batch-file /mnt/qnas/videos/.youtube_channels.txt --ignore-errors
+  youtube-dl --config-location /mnt/qnas/videos/.yt.conf --dateafter 20200301 --batch-file /mnt/qnas/videos/.youtube_channels.txt --ignore-errors
 fi
 # --ignore-errors
 # -v --print-traffic

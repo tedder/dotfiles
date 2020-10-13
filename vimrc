@@ -8,6 +8,9 @@ syntax on
 set background=light
 "colorscheme solarized
 
+set undofile
+set undodir=$HOME/.vim/undo/
+
 set synmaxcol=900 " stop syntax highlighting on super-long lines
 set nomodeline " don't let individual files hijack my settings: http://vim.wikia.com/wiki/Modeline_magic
 

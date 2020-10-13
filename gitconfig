@@ -1,7 +1,7 @@
 [user]
 	name = ted
-	email = ted@signalsciences.com
-	#email = ted@timmons.me
+	#email = ted@signalsciences.com
+	email = ted@timmons.me
 	#signingkey = 445213BF
 [push]
 	default = current

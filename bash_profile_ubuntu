@@ -40,6 +40,7 @@ alias fix_sd_card_permissions='chflags nouchg '
 alias tar=/usr/local/bin/tar
 alias disable_app_translocation='xattr -r -d com.apple.quarantine '
 alias parsec='parsecd app_daemon=1'
+alias mc="docker run -v /home/ted/.mc:/root/.mc/ minio/mc:latest"
 
 alias df='df -x"squashfs" -x"tmpfs" --output="source,fstype,size,used,avail,pcent,target,itotal,iused,ipcent"'
 alias pbcopy='xclip -selection clipboard'

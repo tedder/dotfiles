@@ -17,6 +17,13 @@ Host beebs
   HostName 192.168.0.23
   User ted
   IdentityFile ~/.ssh/id_rsa_myth
+Host devil1
+  HostName 192.168.3.26
+  User ted
+  IdentityFile ~/.ssh/id_rsa_myth
+Host martian
+  HostName 192.168.3.29
+  IdentityFile ~/.ssh/id_rsa_myth
 Host piada
   HostName 192.168.0.36
   User pi
@@ -29,7 +36,12 @@ Host zbox zbox.tedder.me
   HostName 192.168.3.25
   User ted
 Host nucbox nucbox.tedder.me
+  # no?
   HostName 192.168.3.21
+  User ted
+  IdentityFile ~/.ssh/id_rsa_myth
+Host nuc83
+  HostName 192.168.3.18
   User ted
   IdentityFile ~/.ssh/id_rsa_myth
 Host nuc7i7
@@ -76,6 +88,9 @@ Host picam-local
 	Port 22
 	HostName 192.168.1.49
   #x11vnc -passwd fart -display :0 -no6 -reopen -shared -noipv6 -forever -ncache 10
+Host pi4adsb piadsb adsb
+  User pi
+  HostName 192.168.3.67
 Host *.amazonaws.com
 	User ubuntu
 Host seedbox1
@@ -87,7 +102,7 @@ Host seedbox2 seedbox
   User root
   Port 666
   #Port 22
-Host dellr520 r520
+Host dellr520 r520 dell-r520
   HostName 192.168.3.14
 Host dellr610 r610
   HostName 192.168.3.10
@@ -95,10 +110,8 @@ Host blaze1
   HostName 192.168.3.19
 Host blaze0
   HostName 192.168.3.20
-Host blaze2
-  HostName 192.168.3.21
-Host blaze3
-  HostName 192.168.3.22
+Host blaze4
+  HostName 192.168.3.28
 Host github-tedder
   HostName github.com
   User git
