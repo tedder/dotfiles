@@ -2,7 +2,7 @@
 
 #mkdir -p ~/Downloads/yt
 /mnt/qnas/videos/yt-cookies.py > /mnt/qnas/videos/.youtube-cookies.txt
-youtube-dl --config-location /mnt/qnas/videos/.yt.conf --batch-file /mnt/qnas/videos/.youtube.txt
+/usr/local/bin/youtube-dl --version
 if [ "$1" == "subs" ]; then
   echo "running subs too"
   youtube-dl --config-location /mnt/qnas/videos/.yt.conf --dateafter 20200301 --batch-file /mnt/qnas/videos/.youtube_channels.txt --ignore-errors

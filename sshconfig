@@ -17,6 +17,9 @@ Host beebs
   HostName 192.168.0.23
   User ted
   IdentityFile ~/.ssh/id_rsa_myth
+Host tinc.tedder.me tinc
+  HostName tinc.tedder.me
+  User ubuntu
 Host devil1
   HostName 192.168.3.26
   User ted
@@ -112,6 +115,9 @@ Host blaze0
   HostName 192.168.3.20
 Host blaze4
   HostName 192.168.3.28
+Host pi4ups
+  HostName 192.168.3.31
+  User pi
 Host github-tedder
   HostName github.com
   User git
@@ -148,3 +154,13 @@ Host 172.2*.*.*
   IdentityFile ~/.ssh/id_ed25519
   #IdentityFile ~/.ssh/id_rsa
 
+Host ikoula ikoula.tedder.me
+  HostName ikoula.tedder.me
+  User pi
+  #IdentityFile ~/.ssh/id_rsa_myth
+Host sandbox10a
+  HostName 10.54.0.40
+  User pi
+Host sandbox10c
+  HostName 10.54.0.42
+  User pi
