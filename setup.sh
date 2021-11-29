@@ -27,6 +27,10 @@ chmod 600 ~/.ssh/id*
 # git
 [[ -f ~/.gitconfig ]] || ln -s $DOTDIR/gitconfig ~/.gitconfig
 
+# terraform
+[[ -f ~/.terraformrc ]] || ln -s $DOTDIR/terraformrc ~/.terraformrc
+[[ -f ~/.terraform.d/plugin-cache ]] || mkdir -p  ~/.terraform.d/plugin-cache
+
 # misc
 mkdir -p ~/.config/yamllint/
 [[ -f ~/.config/yamllint/config ]] || ln -s $DOTDIR/yamllintconfig ~/.config/yamllint/config
@@ -36,8 +40,8 @@ mkdir -p ~/.config/yamllint/
 [[ -f ~/.pypirc ]] || ln -s $DOTDIR/pypirc ~/.pypirc
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  sh brew
-  sh osx
+  bash brew
+  bash osx
 fi
 
 OS=$(awk -F= '/^NAME/{print $2}' /etc/os-release)

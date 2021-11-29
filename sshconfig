@@ -143,15 +143,12 @@ Host home.tedder.me home
 Host *.sigsci.in
   User ted
   ProxyCommand duoconnect -host=%h:%p -relay=https://ginger.beefalo.sigsci.net
-  IdentityFile ~/.ssh/id_ed25519
-Host eriktest
-  HostName 172.22.16.46
-  User ubuntu
-  ProxyCommand duoconnect -host=%h:%p -relay=https://ginger.beefalo.sigsci.net
-  IdentityFile ~/.ssh/chef.pem
+  #IdentityFile ~/.ssh/id_ed25519
+  IdentityFile ~/.ssh/id_rsa
 Host 172.2*.*.*
   ProxyCommand duoconnect -host=%h:%p -relay=https://ginger.beefalo.sigsci.net
-  IdentityFile ~/.ssh/id_ed25519
+  #IdentityFile ~/.ssh/sigsci_ed25519
+  IdentityFile ~/.ssh/sigsci_id_rsa
   #IdentityFile ~/.ssh/id_rsa
 
 Host ikoula ikoula.tedder.me
@@ -164,3 +161,12 @@ Host sandbox10a
 Host sandbox10c
   HostName 10.54.0.42
   User pi
+Host releng-dev-services releng-prod-services releng-*
+  CanonicalizeHostname always
+  CanonicalDomains service.secretcdn.net
+  ForwardAgent yes
+Host aptly-01-prod aptly-01-preprod
+  ProxyJump chef-bastion
+Host chef-bastion chef-bastion.aws.secretcdn.net
+  ProxyJump bastion
+  HostName chef-bastion.aws.secretcdn.net

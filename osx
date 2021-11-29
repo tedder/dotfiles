@@ -122,7 +122,9 @@ defaults write com.apple.dock tilesize -int 60
 defaults write com.apple.dock hide-mirror -bool true
 
 # dock to left
-defaults write com.apple.dock orientation -string left
+if [ "$HOST" != "Teds-MacBook-Air.local" ]; then
+  defaults write com.apple.dock orientation -string left
+fi
 
 # autohide
 defaults write com.apple.dock autohide -boolean True
