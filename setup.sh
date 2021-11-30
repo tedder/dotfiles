@@ -39,36 +39,42 @@ mkdir -p ~/.config/yamllint/
 [[ -f ~/.wgetrc ]] || ln -s $DOTDIR/wgetrc ~/.wgetrc
 [[ -f ~/.pypirc ]] || ln -s $DOTDIR/pypirc ~/.pypirc
 
+
+[[ -d ~/.kube ]] || mkdir -p ~/.kube
+[[ -f ~/.kube/config ]] || ln -s /home/ted/git/rke_cluster/kube_config_cluster.yml ~/.kube/config
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
   bash brew
   bash osx
+  echo 1 > /sys/module/hid_apple/parameters/fnmode
 fi
 
 OS=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
 #echo $OS
 if [[ $OS == *"Ubuntu"* ]]; then
   sudo -H apt update
-  sudo -H apt install -y vim python3-pip curl git apt-transport-https ca-certificates software-properties-common vlc mesa-utils whois ssh-server net-tools nmap
+  sudo -H apt install -y vim python3-pip curl git apt-transport-https ca-certificates software-properties-common vlc mesa-utils whois openssh-server net-tools nmap
 
   sudo -H apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
   sudo -H apt-add-repository "deb https://deb.etcher.io stable etcher"
   sudo -H apt update
-  sudo -H apt install -y balena-etcher-electron mosquitto-clients youtube-dl ffmpeg barrier gthumb exfat-utils rename arduino
+  sudo -H apt install -y balena-etcher-electron mosquitto-clients youtube-dl ffmpeg barrier gthumb exfat-utils rename arduino postgresql-client-common postgresql-client-12 libpq-dev htop simple-scan
 
 
-  echo 1 > /sys/module/hid_apple/parameters/fnmode
+
   sudo snap install slack --classic
   sudo snap install openscad-nightly
   sudo snap install jq
   bash ubuntu-install-docker.sh
   # sudo add-apt-repository ppa:ubuntu-x-swat/updates
-  update-alternatives --set editor /usr/bin/vim.basic
+  sudo update-alternatives --set editor /usr/bin/vim.basic
+
 fi
 
 
 #sudo gem install jekyll s3_website compass bootstrap-sass
 #sudo -H pip3 install --upgrade --extra-index-url https://ops.stansonhealth.technology/python/simple/ PyStanson pycryptodome awscli yamllint git+git://github.com/ansible/ansible.git@devel#egg=ansible
-sudo -H pip3 install boto boto3 youtube-dl awscli yamllint
+sudo -H pip3 install boto boto3 youtube-dl awscli yamllint psycopg2 psycopg2.extras python-dotenv
 
 [[ -f /usr/local/etc/bash_completion.d/aws_bash_completer.bash-completion ]] || sudo ln -s /usr/local/bin/aws_bash_completer /usr/local/etc/bash_completion.d/aws_bash_completer.bash-completion
 

@@ -3,9 +3,13 @@
 #mkdir -p ~/Downloads/yt
 /mnt/qnas/videos/yt-cookies.py > /mnt/qnas/videos/.youtube-cookies.txt
 /usr/local/bin/youtube-dl --version
+#youtube-dl --config-location /mnt/qnas/videos/.yt.conf --dateafter 20200301 --batch-file /mnt/qnas/videos/.youtube.txt
+youtube-dl --verbose --config-location /mnt/qnas/videos/.yt.conf --batch-file /mnt/qnas/videos/.youtube.txt
 if [ "$1" == "subs" ]; then
   echo "running subs too"
-  youtube-dl --config-location /mnt/qnas/videos/.yt.conf --dateafter 20200301 --batch-file /mnt/qnas/videos/.youtube_channels.txt --ignore-errors
+  #youtube-dl --config-location /mnt/qnas/videos/.yt.conf --dateafter 20200301 --batch-file /mnt/qnas/videos/.youtube_channels.txt --ignore-errors
+  # AvE
+  youtube-dl --config-location /mnt/qnas/videos/.yt.conf --dateafter 20210101 --ignore-errors https://www.youtube.com/user/arduinoversusevil/videos
 fi
 # --ignore-errors
 # -v --print-traffic

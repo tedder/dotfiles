@@ -1,10 +1,14 @@
 mosquitto_sub -h mqtt.home.tedder.me -P $mqtt_password \
- -u octo -v \
  -T "octoprint/#" \
- -T "iot/bloomsky/#" \
- -T "logging/#" \
- -T "motion/#" \
+ -T "rack/bmc/dell-r520/#" \
+ -T "logging/rackbmc/#" \
+ -T "iot/sonoff/pdu/#" \
+ -u octo -v \
  -t '#'
+ #-T "iot/bloomsky/#" \
+ #-T "logging/#" \
+ #-T "motion/#" \
+ #-t '#'
  #-T 'iot/esp32-sensor-a0d8411d/' \
  #-t 'motion/#'
  #-t "iot/emon/#"

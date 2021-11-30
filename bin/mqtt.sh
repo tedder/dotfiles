@@ -1,9 +1,11 @@
 #mosquitto_sub -h 192.168.0.23 -P $mqtt_password \
-mosquitto_sub -h 192.168.0.23 -P $mqtt_password \
+mosquitto_sub -h mqtt.home.tedder.me -P $mqtt_password \
  -u octo -v \
+ -T 'octoprint/#' \
+ -T 'rack/#' \
+ -T 'iot/sonoff/#' \
+ -T 'logging/#' \
  -t '#'
- #-T 'octoprint/#' \
- #-T 'iot/#' \
  #-T 'tedderdebug'
  #-T 'octoprint/+/temperature/tool0' \
  #-T 'octoprint/+/temperature/bed' \

@@ -46,6 +46,7 @@ alias df='df -x"squashfs" -x"tmpfs" --output="source,fstype,size,used,avail,pcen
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias nikola="python3 -m nikola"
+export mqtt_password="Vj7mK@>hBU6dZwvL9Cis"
 
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
