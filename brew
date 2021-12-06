@@ -2,7 +2,7 @@
 
 # sources:
 # https://github.com/AlexTatiyants/dotfiles/blob/master/.brew
-# 
+#
 
 # Make sure we’re using the latest Homebrew
 brew update
@@ -14,24 +14,26 @@ brew cask tap homebrew/cask-drivers
 # Install GNU core utilities (those that come with OS X are outdated)
 brew install coreutils
 #? echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
-brew install coreutils findutils unrar bash dockutil gnupg2 keybase lzlib jsonlint imagemagick pgcli jq ffmpeg htop awscli@2
+brew install coreutils findutils unrar bash dockutil gnupg2 keybase lzlib jsonlint imagemagick pgcli jq ffmpeg htop awscli@2 google-cloud-sdk
 # RIP the following:
 # gpg-agent
 # homebrew/cask-drivers/brother-p-touch-editor
 
 # sigsci chef
-brew install tfenv
-tfenv install 0.12.24
-tfenv use 0.12.24
-brew cask install chef/chef/chef-workstation terraform_landscape 
-
+#brew install tfenv
+#tfenv install 0.12.24
+#tfenv use 0.12.24
+#brew cask install chef/chef/chef-workstation terraform_landscape
 
 
 # stanson toolchain
-brew install ansible gnu-tar
+#brew install ansible gnu-tar
 
 # standard toolchain
-brew install git python python3 mosh wget watch nmap bash-completion
+brew install git python3 mosh wget watch nmap bash-completion
+
+# twic
+brew install tfenv tflint terraform-docs
 
 # python
 python3 -m ensurepip
@@ -43,30 +45,31 @@ mkdir -p ~/Library/Python/3.6/lib/python/site-packages && echo "$(brew --prefix)
 mkdir -p ~/Library/Python/3.7/lib/python/site-packages && echo "$(brew --prefix)/lib/python3.7/site-packages" > ~/Library/Python/3.7/lib/python/site-packages/homebrew.pth
 
 # noncrashy term
-brew cask install iterm2
+brew cask install iterm2 vlc
 brew cask install vlc
 
 # ruby
-brew install chruby ruby-install
+#brew install chruby ruby-install
 
 # ruby versions
-ruby-install ruby 2.1.3
+#ruby-install ruby 2.1.3
 
 # node
 brew install nvm
 
 # beardedspice (audio controller that can pause apps from keyboard)
-brew install Caskroom/cask/beardedspice
+#brew install Caskroom/cask/beardedspice
 
 # microsoft fonts (so spreadsheets/text editor quit complaining about Calibri)
 brew tap colindean/fonts-nonfree && brew cask install font-microsoft-office
 
 # chirp (ham)
-brew install tdsmith/ham/chirp
+# isntall personal only
+#brew install tdsmith/ham/chirp
 
 # misc
 brew install rename
-brew cask install dropbox
+brew cask install dropbox slack zoom backblaze 1password
 
 # Remove outdated versions from the cellar
 brew cleanup
