@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash -exv
 
 # sources:
 # https://github.com/AlexTatiyants/dotfiles/blob/master/.brew
@@ -70,6 +70,10 @@ brew tap colindean/fonts-nonfree && brew cask install font-microsoft-office
 # misc
 brew install rename
 brew cask install dropbox slack zoom backblaze 1password
+
+brew install postgresql
+#/opt/homebrew/opt/postgresql/bin/postgres -D /opt/homebrew/var/postgres
+
 
 # Remove outdated versions from the cellar
 brew cleanup
