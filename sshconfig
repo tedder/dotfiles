@@ -10,9 +10,6 @@ ForwardAgent yes
 
 #Host github.com
 	#LogLevel DEBUG
-Host irc
-  HostName 35.164.156.58
-  User ubuntu
 Host beebs
   HostName 192.168.0.23
   User ted
@@ -20,29 +17,29 @@ Host beebs
 Host tinc.tedder.me tinc
   HostName tinc.tedder.me
   User ubuntu
-Host devil1
-  HostName 192.168.3.26
-  User ted
-  IdentityFile ~/.ssh/id_rsa_myth
+#Host devil1
+#  HostName 192.168.3.26
+#  User ted
+#  IdentityFile ~/.ssh/id_rsa_myth
 Host martian
   HostName 192.168.3.29
   IdentityFile ~/.ssh/id_rsa_myth
-Host piada
-  HostName 192.168.0.36
-  User pi
-  IdentityFile ~/.ssh/id_rsa_myth
+#Host piada
+#  HostName 192.168.0.36
+#  User pi
+#  IdentityFile ~/.ssh/id_rsa_myth
 Host doorcam doorbell pidoor
   HostName 192.168.0.24
   User pi
   IdentityFile ~/.ssh/id_rsa_myth
-Host zbox zbox.tedder.me
-  HostName 192.168.3.25
-  User ted
-Host nucbox nucbox.tedder.me
-  # no?
-  HostName 192.168.3.21
-  User ted
-  IdentityFile ~/.ssh/id_rsa_myth
+#Host zbox zbox.tedder.me
+#  HostName 192.168.3.25
+#  User ted
+#Host nucbox nucbox.tedder.me
+#  # no?
+#  HostName 192.168.3.21
+#  User ted
+#  IdentityFile ~/.ssh/id_rsa_myth
 Host nuc83
   HostName 192.168.3.18
   User ted
@@ -51,10 +48,9 @@ Host nuc7i7
   HostName 192.168.3.38
   User ted
   IdentityFile ~/.ssh/id_rsa_myth
-Host nuc8 nuc 192.168.0.60
-  HostName 192.168.0.60
+Host nuc87
+  HostName 192.168.3.33
   User ted
-  IdentityFile ~/.ssh/id_rsa_myth
 Host qnap_nas
   HostName 192.168.0.26
   User pi
@@ -69,17 +65,9 @@ Host static
 	HostName 209.61.142.60
 	User ted
 	Port 55665
-Host myth
-	User tedder
-	Port 2222
-	HostName tedder42.noip.me
-Host myth-home myth-local
-	User tedder
-	Port 22
-	HostName 192.168.1.82
-Host prusa piprusa prusapi
-	User pi
-	HostName 192.168.0.29
+#Host prusa piprusa prusapi
+#	User pi
+#	HostName 192.168.0.29
 
 Host picam
 	User pi
@@ -91,32 +79,29 @@ Host picam-local
 	Port 22
 	HostName 192.168.1.49
   #x11vnc -passwd fart -display :0 -no6 -reopen -shared -noipv6 -forever -ncache 10
-Host pi4adsb piadsb adsb
+Host pi367 pihole
   User pi
   HostName 192.168.3.67
+Host pi4adsb piadsb adsb
+  User pi
+  HostName 192.168.3.68
 Host *.amazonaws.com
 	User ubuntu
-Host seedbox1
-  HostName seedbox1.tedder.me
-  User root
-  Port 666
-Host seedbox2 seedbox
-  HostName seedbox2.tedder.me
-  User root
-  Port 666
-  #Port 22
 Host dellr520 r520 dell-r520
   HostName 192.168.3.14
-Host dellr610 r610
-  HostName 192.168.3.10
-Host blaze1
-  HostName 192.168.3.19
+#Host dellr610 r610
+#  HostName 192.168.3.10
+#Host blaze1
+#  HostName 192.168.3.19
 Host blaze0
   HostName 192.168.3.20
 Host blaze4
   HostName 192.168.3.28
-Host pi4ups
-  HostName 192.168.3.31
+#Host pi4ups
+#  HostName 192.168.3.31
+#  User pi
+Host tallpi4
+  HostName 192.168.0.104
   User pi
 Host github-tedder
   HostName github.com
@@ -126,47 +111,40 @@ Host github-tedder
 Host 192.168.3.*
   User ted
 	IdentityFile ~/.ssh/id_rsa_myth
-Host homenuc
-  HostName home.tedder.me
-  Port 667
-  User ted
-	IdentityFile ~/.ssh/id_rsa_myth
 Host home.tedder.me home
   HostName home.tedder.me
   Port 666
   User ted
 	IdentityFile ~/.ssh/id_rsa_myth
-#Host *.sigsci.in
-#  ProxyCommand duoconnect -host=%h:%p -relay=https://ginger.prod.sigsci.net
-#  IdentityFile ~/.ssh/chef.pem
-#  User ubuntu
-Host *.sigsci.in
-  User ted
-  ProxyCommand duoconnect -host=%h:%p -relay=https://ginger.beefalo.sigsci.net
-  #IdentityFile ~/.ssh/id_ed25519
-  IdentityFile ~/.ssh/id_rsa
-Host 172.2*.*.*
-  ProxyCommand duoconnect -host=%h:%p -relay=https://ginger.beefalo.sigsci.net
-  #IdentityFile ~/.ssh/sigsci_ed25519
-  IdentityFile ~/.ssh/sigsci_id_rsa
-  #IdentityFile ~/.ssh/id_rsa
 
-Host ikoula ikoula.tedder.me
-  HostName ikoula.tedder.me
-  User pi
+#Host ikoula ikoula.tedder.me
+#  HostName ikoula.tedder.me
+#  User pi
   #IdentityFile ~/.ssh/id_rsa_myth
 Host sandbox10a
   HostName 10.54.0.40
   User pi
+
+# https://eportal.directspace.net/
+Host am.colo am.colo.tedder.me
+  HostName am.colo.tedder.me
+  Port 666
 Host sandbox10c
   HostName 10.54.0.42
   User pi
-Host releng-dev-services releng-prod-services releng-*
-  CanonicalizeHostname always
-  CanonicalDomains service.secretcdn.net
-  ForwardAgent yes
-Host aptly-01-prod aptly-01-preprod
-  ProxyJump chef-bastion
-Host chef-bastion chef-bastion.aws.secretcdn.net
-  ProxyJump bastion
-  HostName chef-bastion.aws.secretcdn.net
+
+Host pete3
+  User pete
+  HostName wikiwiki.mynetgear.com
+  Port 4493
+Host pete1
+  User pete
+  HostName wikiwiki.mynetgear.com
+  Port 4491
+Host petemom
+  User pete
+  Port 35353
+  HostName 72.74.193.121
+
+Host pi4adsb
+  User pi
