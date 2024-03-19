@@ -4,30 +4,6 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 
 #[ -f ~/.okta/bash_functions ] && source ~/.okta/bash_functions
 
-if [ -e .okta/bash_functions ]; then
-
-function okta_hello() {
-  echo "core"
-  OKTA_AWS_ROLE_TO_ASSUME="arn:aws:iam::669843297275:role/Full-Administrator" \
-  okta-aws sigsci_core sts get-caller-identity
-
-  echo "jump"
-  OKTA_AWS_ROLE_TO_ASSUME="arn:aws:iam::827012779870:role/Full-Administrator" \
-  okta-aws sigsci_jump sts get-caller-identity
-
-  echo "prod"
-  OKTA_AWS_ROLE_TO_ASSUME="arn:aws:iam::803688608479:role/Full-Administrator" \
-  okta-aws sigsci_prod sts get-caller-identity
-
-  echo "dev"
-  OKTA_AWS_ROLE_TO_ASSUME="arn:aws:iam::021874968854:role/Full-Administrator" \
-  okta-aws sigsci_dev sts get-caller-identity
-}
-
-. ~/.okta/bash_functions
-
-fi
-
 # "Remember to add "use-standard-socket" to your ~/.gnupg/gpg-agent.conf"
 #if [[ ! `pgrep gpg-agent` ]] || [[ ! -f "${HOME}/.gpg-agent-info" ]]; then
   #echo "starting gpg"
@@ -87,7 +63,7 @@ else
   export HOMEBREW_GITHUB_API_TOKEN="`cat ${HOME}/Dropbox/ted-geek/brew-github-key.txt`"
   # node, nvm, npm
   export NVM_DIR=~/.nvm
-  . $(brew --prefix nvm)/nvm.sh
+  . $(/opt/homebrew/bin/brew --prefix nvm)/nvm.sh
 
   alias lsusb='system_profiler SPUSBDataType'
   alias docker2='dlite'
@@ -95,11 +71,11 @@ else
   alias tar=/usr/local/bin/tar
   alias disable_app_translocation='xattr -r -d com.apple.quarantine '
   alias parsec='parsecd app_daemon=1'
-
-  source ~/.bash_sigsci
 fi
 
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+
 
 #source /usr/local/share/chruby/chruby.sh
 
@@ -137,3 +113,5 @@ alias tffmt="terraform fmt -diff=true"
 
 [ -f ~/.bash_twic ] && source ~/.bash_twic
 
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"

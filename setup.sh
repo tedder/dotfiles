@@ -77,7 +77,7 @@ fi
 
 #sudo gem install jekyll s3_website compass bootstrap-sass
 #sudo -H pip3 install --upgrade --extra-index-url https://ops.stansonhealth.technology/python/simple/ PyStanson pycryptodome awscli yamllint git+git://github.com/ansible/ansible.git@devel#egg=ansible
-sudo -H pip3 install boto boto3 youtube-dl awscli yamllint psycopg2 python-dotenv
+sudo -H pip3 install --break-system-packages boto boto3 youtube-dl awscli yamllint psycopg2 python-dotenv
 # doesn't exist anymore? psycopg2.extras
 
 if ([ -f /usr/local/bin/aws_bash_completer && ! -f /usr/local/etc/bash_completion.d/aws_bash_completer.bash-completion]); then
