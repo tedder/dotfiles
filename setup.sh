@@ -48,8 +48,8 @@ if ([ ! -f ~/.kube/config ] && [ -f ~/git/rke_cluster/kube_config_cluster.yml ])
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  bash brew
-  bash osx
+  ./brew_apps.sh
+  ./osx_updates.sh
   # doesn't exist anymore?
   #echo 1 > /sys/module/hid_apple/parameters/fnmode
 else
@@ -90,8 +90,17 @@ fi
 
 # requires package installs- eg curl
 
-mkdir -p ~/.vim/autoload/ ~/.vim/bundle/
+mkdir -p ~/.vim/autoload/ ~/.vim/bundle/ ~/.vim/pack/local/start/
 [[ -f ~/.vim/colors/solarized.vim ]] || ln -s $DOTDIR/vim/colors/solarized.vim ~/.vim/colors/
-if [ ! -e ~/.vim/autoload/pathogen.vim ]
-  then curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+if [ ! -e ~/.vim/autoload/pathogen.vim ] then
+  curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 fi
+
+if [ -d ~/.vim/pack/local/start/editorconfig ] then
+  git clone https://github.com/editorconfig/editorconfig-vim.git ~/.vim/pack/local/start/editorconfig
+fi
+
+
+# twic
+npm config set prefix ~/.npm
+npm install -g lerna

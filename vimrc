@@ -1,6 +1,7 @@
 
 set nocompatible          " get rid of Vi compatibility mode. SET FIRST!
 set t_Co=256              " enable 256-color mode.
+execute pathogen#infect()
 
 " solarized: http://www.mrxuri.com/2013/11/09/use-solarized-color-scheme-in-mac-os-x-terminal.html
 "syntax enable
@@ -51,6 +52,10 @@ augroup resCur
   autocmd BufWinEnter * call ResCur()
 augroup END
 
+augroup ftd
+  autocmd BufNewFile,BufRead *.ts set ft=tsc
+augroup END
+
 " from here: https://github.com/tpope/vim-markdown/blob/master/ftdetect/markdown.vim
 " see also: http://technicalpickles.com/posts/using-markdown-in-vim/
 autocmd BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn
@@ -69,7 +74,6 @@ autocmd BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn
 ":set list
 ":set listchars=tab:\|\<Space>
 
-" execute pathogen#infect()
 
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}

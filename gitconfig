@@ -1,8 +1,8 @@
 [user]
-	name = ted
+	name = Ted Timmons
 	#email = ted@signalsciences.com
-	email = ted@timmons.me
-	#signingkey = 445213BF
+	email = ted@joinforma.com
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIB0ZOF3aDbZYk4+FKheoFVMyzGRhIMnB3gL7BQhF9t+
 [push]
 	default = current
 [alias]
@@ -10,16 +10,22 @@
 	ci = commit
 [color]
 	ui = true
-#[commit]
-#	gpgsign = true
-#[gpg]
-#	program = gpg
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
+
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+[commit]
+  #gpgsign = true
 [pull]
 	rebase = true
 [branch]
 	autosetuprebase = always
-[url "git@github.com:signalsciences"]
-	insteadOf = https://github.com/signalsciences
-
 [status]
 	submoduleSummary = true
+[init]
+	defaultBranch = main

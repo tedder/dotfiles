@@ -1,5 +1,8 @@
 # 2.0 gpg-agent, 1.1 dirmngr: #export PATH="/usr/local/opt/gpg-agent/bin:/usr/local/opt/dirmngr/bin:
-export PATH="$HOME/.okta/bin/:$HOME/git/dotfiles/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/usr/local/opt/qt@5.5/bin:/usr/local/opt/qt/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/ted/Library/Python/3.7/bin:$HOME/.local/bin:$HOME/go/bin:$PATH"
+export PATH="/opt/homebrew/sbin:/opt/homebrew/opt/ruby@3.0/bin:/opt/homebrew/lib/ruby/gems/3.0.0/bin:/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin:/opt/homebrew/bin:$HOME/.okta/bin/:$HOME/git/dotfiles/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:/usr/local/opt/qt@5.5/bin:/usr/local/opt/qt/bin:/usr/sbin:/sbin:/opt/X11/bin:$HOME/Library/Python/3.8/bin:$HOME/.local/bin:$HOME/go/bin:$HOME/.npm/bin:$PATH"
+export RUBYOPT="-W0"
+
+
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 #[ -f ~/.okta/bash_functions ] && source ~/.okta/bash_functions
@@ -39,7 +42,7 @@ export BOTO_CONFIG="~/.aws/config"
 
 #alias tower="ssh -i ~/.ssh/stanson-aws.pem -N -L 1613:localhost:443 ubuntu@tower.ssh.stansonhealth.com"
 #alias vash="mosh --ssh='ssh -o IdentityFile=/Users/ted/.vagrant.d/insecure_private_key -o StrictHostKeyChecking=no -p 2222' vagrant@127.0.0.1"
-alias ass='~/git/awsinfra/tools/keyman_wrapper.sh sigsci_prod sigsci_dev sigsci_core'
+#alias ass='~/git/awsinfra/tools/keyman_wrapper.sh sigsci_prod sigsci_dev sigsci_core'
 alias lsusb='system_profiler SPUSBDataType'
 alias docker2='dlite'
 alias fix_sd_card_permissions='chflags nouchg '
@@ -63,7 +66,8 @@ else
   export HOMEBREW_GITHUB_API_TOKEN="`cat ${HOME}/Dropbox/ted-geek/brew-github-key.txt`"
   # node, nvm, npm
   export NVM_DIR=~/.nvm
-  . $(/opt/homebrew/bin/brew --prefix nvm)/nvm.sh
+  #. $(/opt/homebrew/bin/brew --prefix nvm)/nvm.sh
+  #. $(brew --prefix nvm)/nvm.sh
 
   alias lsusb='system_profiler SPUSBDataType'
   alias docker2='dlite'
@@ -71,6 +75,7 @@ else
   alias tar=/usr/local/bin/tar
   alias disable_app_translocation='xattr -r -d com.apple.quarantine '
   alias parsec='parsecd app_daemon=1'
+
 fi
 
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
@@ -112,6 +117,10 @@ alias tf="terraform"
 alias tffmt="terraform fmt -diff=true"
 
 [ -f ~/.bash_twic ] && source ~/.bash_twic
+source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc"
+
+# fixes "tf apply" ValidateResourceConfig errors
+export GODEBUG=asyncpreemptoff=1
 
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"

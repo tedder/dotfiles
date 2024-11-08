@@ -10,10 +10,14 @@ brew update
 # Upgrade any already-installed formulae
 brew upgrade
 
-##brew cask tap homebrew/cask-drivers
+
+# no more cask
+#brew cask tap homebrew/cask-drivers
 # Install GNU core utilities (those that come with OS X are outdated)
 brew install coreutils
 #? echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
+# prev unrar, but it doesn't exist anymore
+#brew install coreutils findutils bash dockutil gnupg2 keybase lzlib jsonlint imagemagick pgcli jq ffmpeg htop awscli@2 google-cloud-sdk
 brew install coreutils findutils bash dockutil gnupg keybase lzlib jsonlint imagemagick pgcli jq ffmpeg htop awscli@2 google-cloud-sdk the_silver_searcher
 
 # RIP the following:

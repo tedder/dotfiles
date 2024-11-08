@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -exv
 
 # sources:
 # https://github.com/mathiasbynens/dotfiles/blob/master/.osx
