@@ -49,7 +49,7 @@ fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   ./brew_apps.sh
-  ./osx_updates.sh
+  ./osx_updates.sh || true
   # doesn't exist anymore?
   #echo 1 > /sys/module/hid_apple/parameters/fnmode
 else

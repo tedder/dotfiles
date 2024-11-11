@@ -4,7 +4,7 @@
 # https://github.com/mathiasbynens/dotfiles/blob/master/.osx
 
 # needed for brew
-xcode-select --install
+xcode-select --install || true
 
 
 # Set standby delay to 24 hours (default is 1 hour)
@@ -150,7 +150,7 @@ defaults write com.google.Keystone.Agent checkInterval 604800
 
 
 brew install dockutil
-dockutil --list | grep persistent-apps | cut -f 1 | egrep -v "Siri" | xargs -L 1  -J % dockutil --remove \'%\'
+dockutil --list | egrep -i "persistentapp|persistent-apps" | cut -f 1 | egrep -v "Siri" | xargs -L 1  -I __ dockutil --remove "__"
 dockutil --add /Applications/Google\ Chrome.app
 dockutil --add /Applications/1Password*.app
 if [ -e /Applications/Adobe\ Lightroom/Adobe\ Lightroom.app ]; then

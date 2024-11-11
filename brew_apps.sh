@@ -10,6 +10,7 @@ brew update
 # Upgrade any already-installed formulae
 brew upgrade
 
+sudo softwareupdate --install-rosetta
 
 # no more cask
 #brew cask tap homebrew/cask-drivers
@@ -18,7 +19,7 @@ brew install coreutils
 #? echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
 # prev unrar, but it doesn't exist anymore
 #brew install coreutils findutils bash dockutil gnupg2 keybase lzlib jsonlint imagemagick pgcli jq ffmpeg htop awscli@2 google-cloud-sdk
-brew install coreutils findutils bash dockutil gnupg keybase lzlib jsonlint imagemagick pgcli jq ffmpeg htop awscli@2 google-cloud-sdk the_silver_searcher
+brew install coreutils findutils bash dockutil gnupg keybase lzlib jsonlint imagemagick pgcli jq ffmpeg htop awscli@2 google-cloud-sdk the_silver_searcher vim
 
 # RIP the following:
 # gpg-agent unrar
@@ -73,7 +74,8 @@ brew tap colindean/fonts-nonfree && brew install font-microsoft-office
 
 # misc
 brew install rename
-brew install dropbox slack zoom backblaze 1password
+#brew install dropbox slack zoom backblaze 1password
+brew install zoom backblaze
 
 brew install postgresql
 #/opt/homebrew/opt/postgresql/bin/postgres -D /opt/homebrew/var/postgres

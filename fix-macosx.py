@@ -7,7 +7,7 @@ import os, sys
 # We only handle Yosemite's spotlight for now
 majorRelease = int(os.uname()[2].split(".")[0])
 if majorRelease < 14:
-  print "Good news! This version of Mac OS X's Spotlight and Safari are not known to invade your privacy."
+  print("Good news! This version of Mac OS X's Spotlight and Safari are not known to invade your privacy.")
   sys.exit(0)
 
 def fixSpotlight ():
@@ -55,7 +55,7 @@ def fixSpotlight ():
           missing_keys.append(key)
 
       if len(missing_keys) != 0:
-        print "Preference item %s is missing expected keys (%s), skipping" % (item, missing_keys)
+        print("Preference item %s is missing expected keys (%s), skipping" % (item, missing_keys))
         newItems.append(item)
         continue
 
@@ -86,4 +86,4 @@ def fixSafariSpotlight ():
 
 fixSpotlight()
 fixSafariSpotlight()
-print "All done. Make sure to log out (and back in) for the changes to take effect."
+print("All done. Make sure to log out (and back in) for the changes to take effect.")
